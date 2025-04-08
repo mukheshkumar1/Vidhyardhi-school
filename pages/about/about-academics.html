@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Academics | Vidhyardhi School</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            satisfy: ["Madimi One", "sans-serif"],
+            fredoka: ["Fredoka", "sans-serif"],
+            poppins: ["Poppins", "sans-serif"],
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;1,900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/25ddfd4f55.js" crossorigin="anonymous"></script>
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Custom Styles & Script -->
+  <link rel="stylesheet" href="../../styles.css">
+  <script defer src="../../script.js"></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+
+  <!-- Initialize AOS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({ once: true });
+    });
+  </script>
+
+  <!-- Navigation Back Button -->
+  <div class="p-4" data-aos="fade-right" data-aos-duration="800">
+    <a href="../../index.html" class="text-gray-300 home-hover-effect text-2xl">
+      <i class="fa-solid fa-house"></i> Back to Home
+    </a>
+  </div>
+
+  <!-- About Academics Section -->
+  <div class="group relative max-w-4xl mx-auto my-10 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+       data-aos="zoom-in-up" data-aos-duration="1000">
+       
+    <!-- Background Hover Effect -->
+    <div class="absolute inset-0 bg-[#80cb2e] scale-y-0 origin-bottom transition-transform duration-500 group-hover:scale-y-100"></div>
+
+    <!-- Content -->
+    <h1 class="text-3xl font-bold font-fredoka text-center text-green-600 dark:text-green-400 relative z-10 transition duration-500 group-hover:text-white"
+        data-aos="fade-up" data-aos-delay="100">
+      Our Academic Programs
+    </h1>
+
+    <p class="mt-4 font-poppins text-gray-700 dark:text-gray-300 relative z-10 transition duration-500 group-hover:text-white"
+       data-aos="fade-up" data-aos-delay="200">
+      At Vidhyardhi School, we believe in a well-rounded education that emphasizes both academics and personal growth.
+      Our curriculum is structured to encourage critical thinking, creativity, and lifelong learning.
+    </p>
+
+    <p class="mt-4 font-poppins text-gray-700 dark:text-gray-300 relative z-10 transition duration-500 group-hover:text-white"
+       data-aos="fade-up" data-aos-delay="300">
+      We offer subjects in Science, Mathematics, Humanities, and the Arts, ensuring that students receive comprehensive knowledge across disciplines.
+      Our teachers are dedicated to fostering a supportive and engaging learning environment.
+    </p>
+
+    <!-- Bottom Border Effect -->
+    <div class="absolute bottom-0 left-0 w-full h-1 bg-[#80cb2e]"></div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="p-4 flex justify-between items-center" data-aos="fade-up" data-aos-delay="400">
+    <a href="../about/about-staff.html" class="text-gray-300 hover-effect text-2xl flex items-center">
+      <i class="fa-solid fa-backward mr-2"></i>
+      <h3 class="font-satisfy">Staff</h3>
+    </a>
+
+    <a href="../about/about-school.html" class="text-gray-300 hover-effect text-2xl flex items-center">
+      <h3 class="font-satisfy">School</h3>
+      <i class="fa-solid fa-forward ml-2"></i>
+    </a>
+  </div>
+
+</body>
+</html>

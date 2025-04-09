@@ -1,3 +1,5 @@
+
+
 .hover-effect {
     position: relative;
     display: inline-block;
@@ -269,6 +271,10 @@
     font-style: italic;
   }
 
+  .gallery-image-wrapper img {
+    transition: all 0.5s ease-in-out;
+  }
+
   .glass-card {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -488,3 +494,35 @@ cloud-shape {
   pointer-events: auto;
 }
 
+#chat-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #69306d, #80cb2e);
+  border-radius: 10px;
+}
+
+#chat-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 🌈 Global Stylish Scrollbar */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1f1f2e; /* dark background */
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #69306d, #80cb2e);
+  border-radius: 10px;
+  border: 2px solid #1f1f2e; /* adds space around thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #80cb2e, #69306d);
+}

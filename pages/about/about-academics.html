@@ -15,6 +15,7 @@
             satisfy: ["Madimi One", "sans-serif"],
             fredoka: ["Fredoka", "sans-serif"],
             poppins: ["Poppins", "sans-serif"],
+            montserrat: ["Montserrat", "sans-serif"]
           }
         }
       }
@@ -24,6 +25,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/25ddfd4f55.js" crossorigin="anonymous"></script>
@@ -37,7 +41,7 @@
   <script defer src="../../script.js"></script>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+<body class="bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] min-h-screen transition-all text-gray-200">
 
   <!-- Initialize AOS -->
   <script>
@@ -48,52 +52,53 @@
 
   <!-- Navigation Back Button -->
   <div class="p-4" data-aos="fade-right" data-aos-duration="800">
-    <a href="../../index.html" class="text-gray-300 home-hover-effect text-2xl">
+    <a href="../../index.html" class="text-gray-300 text-2xl hover-effect">
       <i class="fa-solid fa-house"></i> Back to Home
     </a>
   </div>
 
-  <!-- About Academics Section -->
-  <div class="group relative max-w-4xl mx-auto my-10 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+  <!-- About Academics Section with Glassmorphism -->
+  <div class="relative max-w-4xl mx-auto my-10 p-8 rounded-2xl shadow-xl border border-white/20 bg-white/10 backdrop-blur-md"
        data-aos="zoom-in-up" data-aos-duration="1000">
-       
-    <!-- Background Hover Effect -->
-    <div class="absolute inset-0 bg-[#80cb2e] scale-y-0 origin-bottom transition-transform duration-500 group-hover:scale-y-100"></div>
 
-    <!-- Content -->
-    <h1 class="text-3xl font-bold font-fredoka text-center text-green-600 dark:text-green-400 relative z-10 transition duration-500 group-hover:text-white"
+    <h1 class="text-3xl font-bold font-fredoka text-white text-center mb-4"
         data-aos="fade-up" data-aos-delay="100">
       Our Academic Programs
     </h1>
 
-    <p class="mt-4 font-poppins text-gray-700 dark:text-gray-300 relative z-10 transition duration-500 group-hover:text-white"
-       data-aos="fade-up" data-aos-delay="200">
-      At Vidhyardhi School, we believe in a well-rounded education that emphasizes both academics and personal growth.
-      Our curriculum is structured to encourage critical thinking, creativity, and lifelong learning.
+    <p class="mt-4 font-montserrat text-gray-300" data-aos="fade-up" data-aos-delay="200">
+      <strong>
+        At Vidhyardhi School, we believe in a well-rounded education that emphasizes both academics and personal growth.
+        Our curriculum is structured to encourage critical thinking, creativity, and lifelong learning.
+      </strong>
     </p>
-
-    <p class="mt-4 font-poppins text-gray-700 dark:text-gray-300 relative z-10 transition duration-500 group-hover:text-white"
-       data-aos="fade-up" data-aos-delay="300">
-      We offer subjects in Science, Mathematics, Humanities, and the Arts, ensuring that students receive comprehensive knowledge across disciplines.
-      Our teachers are dedicated to fostering a supportive and engaging learning environment.
+    
+    <p class="mt-4 font-montserrat text-gray-300" data-aos="fade-up" data-aos-delay="300">
+      <strong>
+        We offer subjects in Science, Mathematics, Humanities, and the Arts, ensuring that students receive comprehensive knowledge across disciplines.
+        Our teachers are dedicated to fostering a supportive and engaging learning environment.
+      </strong>
     </p>
+    
 
-    <!-- Bottom Border Effect -->
-    <div class="absolute bottom-0 left-0 w-full h-1 bg-[#80cb2e]"></div>
   </div>
 
   <!-- Navigation -->
   <div class="p-4 flex justify-between items-center" data-aos="fade-up" data-aos-delay="400">
-    <a href="../about/about-staff.html" class="text-gray-300 hover-effect text-2xl flex items-center">
-      <i class="fa-solid fa-backward mr-2"></i>
-      <h3 class="font-satisfy">Staff</h3>
-    </a>
 
-    <a href="../about/about-school.html" class="text-gray-300 hover-effect text-2xl flex items-center">
-      <h3 class="font-satisfy">School</h3>
+
+    <a href="../about/about-staff.html" class="group text-gray-300 text-2xl flex items-center hover-effect transition duration-300">
+      <i class="fa-solid fa-backward mr-2"></i>
+      <h3 class="font-fredoka text-gray-300 hover-effect transition duration-300">Staff</h3>
+    </a>
+  
+    <a href="../about/about-school.html" class="group text-gray-300 text-2xl flex items-center hover-effect transition duration-300">
+      <h3 class="font-fredoka text-gray-300 hover-effect transition duration-300">School</h3>
       <i class="fa-solid fa-forward ml-2"></i>
     </a>
+  
   </div>
+  
 
 </body>
 </html>

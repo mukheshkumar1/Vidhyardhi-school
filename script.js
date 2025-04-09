@@ -2,31 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
   // Footer Year Update
   document.getElementById("year").innerText = new Date().getFullYear();
 
-  //faq popup
-
+  // FAQ popup
   const faqPopup = document.getElementById("faq-popup");
   const faqChatbox = document.getElementById("faq-chatbox");
   const closeFaqChat = document.getElementById("close-faq-chat");
   const chatContent = document.getElementById("chat-content");
   const faqButtons = document.querySelectorAll(".faq-btn");
 
-  // Show popup on scroll (every time)
   window.addEventListener("scroll", () => {
     faqPopup.classList.add("scale-100", "opacity-100", "pointer-events-auto", "animate__fadeInUp");
     faqPopup.classList.remove("scale-90", "opacity-0", "pointer-events-none");
   });
 
-  // Open chatbox
   faqPopup.addEventListener("click", () => {
     faqChatbox.classList.remove("hidden");
   });
 
-  // Close chatbox
   closeFaqChat.addEventListener("click", () => {
     faqChatbox.classList.add("hidden");
   });
 
-  // Show chat-style Q&A
   faqButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const question = btn.innerText;
@@ -142,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "./assets/school4.jpg",
     "./assets/school5.jpg"
   ];
-  let currentIndex = 0;
+  let bgIndex = 0;
   const overlay = document.getElementById("background-overlay");
 
   function changeBackground() {
@@ -150,8 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.style.filter = "blur(10px)";
       overlay.style.opacity = "0.5";
       setTimeout(() => {
-        currentIndex = (currentIndex + 1) % images.length;
-        overlay.style.backgroundImage = `url('${images[currentIndex]}')`;
+        bgIndex = (bgIndex + 1) % images.length;
+        overlay.style.backgroundImage = `url('${images[bgIndex]}')`;
         overlay.style.filter = "blur(0px)";
         overlay.style.opacity = "1";
       }, 500);
@@ -240,20 +235,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const viewerImg = document.getElementById("viewerImg");
   const closeViewer = document.getElementById("closeViewer");
 
-  // Open modal on Field Trip click
   fieldTripCard?.addEventListener("click", () => {
     modal.classList.remove("hidden");
-    modal.classList.add("flex");
-    modal.classList.add("scale-100");
+    modal.classList.add("flex", "scale-100");
   });
 
-  // Close modal
   closeModal?.addEventListener("click", () => {
     modal.classList.add("hidden");
     modal.classList.remove("flex");
   });
 
-  // Close on outside click
   modal?.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.classList.add("hidden");
@@ -261,7 +252,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Image View from Carousel
   document.querySelectorAll(".carousel-img").forEach((img) => {
     img.addEventListener("click", () => {
       viewerImg.src = img.src;
@@ -270,13 +260,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Close Image Viewer
   closeViewer?.addEventListener("click", () => {
     viewer.classList.add("hidden");
     viewer.classList.remove("flex");
     viewerImg.src = "";
   });
 
+  // GALLERY CAROUSEL (FIXED)
   const galleryImages = [
     "./assets/fieldtrip1.jpeg",
     "./assets/fieldtrip2.jpeg",
@@ -284,84 +274,97 @@ document.addEventListener("DOMContentLoaded", function () {
     "./assets/fieldtrip4.jpg",
   ];
 
-  let currentImage = 0;
-  const galleryDisplay = document.getElementById("galleryDisplay");
+  let currentIndex = 0;
 
-  function updateGallery() {
-    galleryDisplay.innerHTML = "";
+  function renderGallery() {
+    const display = document.getElementById("galleryDisplay");
+    if (!display) return;
+    display.innerHTML = "";
 
-    const prevIndex = (currentImage - 1 + galleryImages.length) % galleryImages.length;
-    const nextIndex = (currentImage + 1) % galleryImages.length;
+    galleryImages.forEach((src, index) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "gallery-image-wrapper transition-all duration-500 ease-in-out";
 
-    const prevImg = document.createElement("img");
-    prevImg.src = galleryImages[prevIndex];
-    prevImg.className = "h-32 md:h-40 rounded-lg gallery-image side";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = `Gallery Image ${index + 1}`;
+      img.className = "rounded-xl shadow-xl object-cover cursor-pointer";
 
-    const mainImg = document.createElement("img");
-    mainImg.src = galleryImages[currentImage];
-    mainImg.className = "h-56 md:h-72 rounded-xl gallery-image active";
+      // Show images based on index
+      if (index === currentIndex) {
+        img.classList.add("w-[320px]", "h-[180px]", "scale-100", "z-20");
+      } else if (index === (currentIndex - 1 + galleryImages.length) % galleryImages.length) {
+        img.classList.add("w-40", "h-28", "scale-90", "opacity-70", "-translate-x-2", "z-10");
+      } else if (index === (currentIndex + 1) % galleryImages.length) {
+        img.classList.add("w-40", "h-28", "scale-90", "opacity-70", "translate-x-2", "z-10");
+      } else {
+        img.classList.add("hidden");
+      }
 
-    const nextImg = document.createElement("img");
-    nextImg.src = galleryImages[nextIndex];
-    nextImg.className = "h-32 md:h-40 rounded-lg gallery-image side";
+      // Mobile click to view full image
+      img.addEventListener("click", () => {
+        if (window.innerWidth < 640) {
+          const modal = document.getElementById("mobileImageModal");
+          const modalImg = document.getElementById("modalImage");
+          modalImg.src = src;
+          modal.classList.remove("hidden");
+        }
+      });
 
-    galleryDisplay.appendChild(prevImg);
-    galleryDisplay.appendChild(mainImg);
-    galleryDisplay.appendChild(nextImg);
+      wrapper.appendChild(img);
+      display.appendChild(wrapper);
+    });
   }
 
-  // Button navigation
   const prevBtn = document.getElementById("prevImage");
   const nextBtn = document.getElementById("nextImage");
 
   if (prevBtn && nextBtn) {
     prevBtn.addEventListener("click", () => {
-      currentImage = (currentImage - 1 + galleryImages.length) % galleryImages.length;
-      animateTransition();
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      renderGallery();
     });
 
     nextBtn.addEventListener("click", () => {
-      currentImage = (currentImage + 1) % galleryImages.length;
-      animateTransition();
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      renderGallery();
     });
   }
 
-  // Mobile swipe
-  let touchStartX = 0;
-  let touchEndX = 0;
+  renderGallery();
+
+  // Enable swipe gestures on mobile
+  let startX = 0;
+  let endX = 0;
+
+  const galleryDisplay = document.getElementById("galleryDisplay");
 
   galleryDisplay.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
+    startX = e.touches[0].clientX;
   });
 
-  galleryDisplay.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
+  galleryDisplay.addEventListener("touchmove", (e) => {
+    endX = e.touches[0].clientX;
   });
 
-  function handleSwipe() {
+  galleryDisplay.addEventListener("touchend", () => {
     const threshold = 50;
-    if (touchEndX < touchStartX - threshold) {
-      currentImage = (currentImage + 1) % galleryImages.length;
-      animateTransition();
-    } else if (touchEndX > touchStartX + threshold) {
-      currentImage = (currentImage - 1 + galleryImages.length) % galleryImages.length;
-      animateTransition();
+    const swipeDistance = endX - startX;
+
+    if (swipeDistance > threshold) {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      renderGallery();
+    } else if (swipeDistance < -threshold) {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      renderGallery();
     }
-  }
 
-  function animateTransition() {
-    // fade out
-    const imgs = galleryDisplay.querySelectorAll("img");
-    imgs.forEach(img => {
-      img.classList.remove("active");
-      img.style.opacity = "0";
-    });
+    startX = 0;
+    endX = 0;
+  });
 
-    setTimeout(() => {
-      updateGallery();
-    }, 300);
-  }
-
-  updateGallery();
+  // ✅ Close modal when "X" is clicked
+  document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("mobileImageModal").classList.add("hidden");
+  });
 });

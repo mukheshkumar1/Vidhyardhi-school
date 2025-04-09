@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-3 py-2 rounded-lg max-w-[80%]">${answer}</div>
         </div>
       `;
-
       chatContent.scrollTop = chatContent.scrollHeight;
     });
   });
@@ -152,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 500);
     }
   }
-
   setInterval(changeBackground, 5000);
 
   // Animate on Scroll
@@ -172,101 +170,114 @@ document.addEventListener("DOMContentLoaded", function () {
       container.classList.add('hover-effect');
       card.classList.add('hovered');
     });
-
     card.addEventListener('mouseleave', () => {
       container.classList.remove('hover-effect');
       cards.forEach(c => c.classList.remove('hovered'));
     });
-
     card.addEventListener('touchstart', () => {
       container.classList.add('hover-effect');
       cards.forEach(c => c.classList.remove('hovered'));
       card.classList.add('hovered');
     });
-
     card.addEventListener('touchend', () => {
       container.classList.remove('hover-effect');
       cards.forEach(c => c.classList.remove('hovered'));
     });
   });
 
-  const groups = document.querySelectorAll(".hover-group");
-  groups.forEach(group => {
-    const cards = group.querySelectorAll(".card-item");
-    let isTouch = false;
-
-    cards.forEach(card => {
-      card.addEventListener("touchstart", e => {
-        isTouch = true;
-        group.classList.add("touch");
-        cards.forEach(c => c.classList.remove("active"));
-        card.classList.add("active");
-        e.stopPropagation();
-      });
-    });
-
-    document.addEventListener("touchstart", () => {
-      if (isTouch) {
-        group.classList.remove("touch");
-        cards.forEach(c => c.classList.remove("active"));
-      }
-    });
-  });
-
   // Entrance animations
-  document.querySelectorAll("h2, h3, p, img").forEach(el => {
-    el.classList.add("fade-in-up");
-  });
-
-  document.querySelectorAll("nav, #mobile-menu").forEach(el => {
-    el.classList.add("slide-down");
-  });
-
-  document.querySelectorAll("a, button").forEach(el => {
-    el.classList.add("scale-on-hover");
-  });
+  document.querySelectorAll("h2, h3, p, img").forEach(el => el.classList.add("fade-in-up"));
+  document.querySelectorAll("nav, #mobile-menu").forEach(el => el.classList.add("slide-down"));
+  document.querySelectorAll("a, button").forEach(el => el.classList.add("scale-on-hover"));
 
   // FIELD TRIP MODAL
   const fieldTripCard = document.querySelector(".card-item img[alt='Field Trips']");
-  const modal = document.getElementById("fieldTripModal");
-  const closeModal = document.getElementById("closeFieldTripModal");
+  const fieldTripModal = document.getElementById("fieldTripModal");
+  const closeFieldTripModal = document.getElementById("closeFieldTripModal");
 
-  const viewer = document.getElementById("imageViewer");
-  const viewerImg = document.getElementById("viewerImg");
-  const closeViewer = document.getElementById("closeViewer");
+  function openFieldTripModal() {
+    fieldTripModal.classList.remove("hidden");
+    fieldTripModal.classList.add("flex", "scale-100");
+    document.body.classList.add("overflow-hidden");
+  }
 
-  fieldTripCard?.addEventListener("click", () => {
-    modal.classList.remove("hidden");
-    modal.classList.add("flex", "scale-100");
+  function closeFieldTrip() {
+    fieldTripModal.classList.add("hidden");
+    fieldTripModal.classList.remove("flex");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  fieldTripCard?.addEventListener("click", openFieldTripModal);
+  closeFieldTripModal?.addEventListener("click", closeFieldTrip);
+  fieldTripModal?.addEventListener("click", (e) => {
+    if (e.target === fieldTripModal) closeFieldTrip();
   });
 
-  closeModal?.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
+  // HELPING HANDS MODAL
+  const helpingHandsCard = document.querySelector(".card-item img[alt='Helping Hands']");
+  const helpingHandsModal = document.getElementById("helpingHandsModal");
+  const closeHelpingHandsModal = document.getElementById("closeHelpingHandsModal");
+
+  function openHelpingHandsModal() {
+    helpingHandsModal.classList.remove("hidden");
+    helpingHandsModal.classList.add("flex", "scale-100");
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function closeHelpingHands() {
+    helpingHandsModal.classList.add("hidden");
+    helpingHandsModal.classList.remove("flex");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  helpingHandsCard?.addEventListener("click", openHelpingHandsModal);
+  closeHelpingHandsModal?.addEventListener("click", closeHelpingHands);
+  helpingHandsModal?.addEventListener("click", (e) => {
+    if (e.target === helpingHandsModal) closeHelpingHands();
   });
 
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-    }
-  });
+  // IMAGE VIEWER (shared for all modals)
+  // IMAGE VIEWER: FIELD TRIP
+const fieldTripViewer = document.getElementById("fieldTripViewer");
+const fieldTripViewerImg = document.getElementById("fieldTripViewerImg");
+const closeFieldTripViewer = document.getElementById("closeFieldTripViewer");
 
-  document.querySelectorAll(".carousel-img").forEach((img) => {
-    img.addEventListener("click", () => {
-      viewerImg.src = img.src;
-      viewer.classList.remove("hidden");
-      viewer.classList.add("flex");
-    });
+document.querySelectorAll("#fieldTripModal .carousel-img").forEach((img) => {
+  img.addEventListener("click", () => {
+    fieldTripViewerImg.src = img.src;
+    fieldTripViewer.classList.remove("hidden");
+    fieldTripViewer.classList.add("flex");
   });
+});
 
-  closeViewer?.addEventListener("click", () => {
-    viewer.classList.add("hidden");
-    viewer.classList.remove("flex");
-    viewerImg.src = "";
+closeFieldTripViewer?.addEventListener("click", () => {
+  fieldTripViewer.classList.add("hidden");
+  fieldTripViewer.classList.remove("flex");
+  fieldTripViewerImg.src = "";
+});
+
+
+// IMAGE VIEWER: HELPING HANDS
+const helpingHandsViewer = document.getElementById("helpingHandsViewer");
+const helpingHandsViewerImg = document.getElementById("helpingHandsViewerImg");
+const closeHelpingHandsViewer = document.getElementById("closeHelpingHandsViewer");
+
+document.querySelectorAll("#helpingHandsModal .carousel-img").forEach((img) => {
+  img.addEventListener("click", () => {
+    helpingHandsViewerImg.src = img.src;
+    helpingHandsViewer.classList.remove("hidden");
+    helpingHandsViewer.classList.add("flex");
   });
+});
 
-  // GALLERY CAROUSEL (FIXED)
+closeHelpingHandsViewer?.addEventListener("click", () => {
+  helpingHandsViewer.classList.add("hidden");
+  helpingHandsViewer.classList.remove("flex");
+  helpingHandsViewerImg.src = "";
+});
+
+
+  // GALLERY CAROUSEL
   const galleryImages = [
     "./assets/fieldtrip1.jpeg",
     "./assets/fieldtrip2.jpeg",
@@ -275,24 +286,26 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   let currentIndex = 0;
+  let lastIndex = 0;
 
-  function renderGallery() {
+  function renderGallery(direction = null) {
     const display = document.getElementById("galleryDisplay");
     if (!display) return;
     display.innerHTML = "";
 
     galleryImages.forEach((src, index) => {
       const wrapper = document.createElement("div");
-      wrapper.className = "gallery-image-wrapper transition-all duration-500 ease-in-out";
+      wrapper.className = "gallery-image-wrapper transition-all duration-500 ease-in-out transform";
 
       const img = document.createElement("img");
       img.src = src;
       img.alt = `Gallery Image ${index + 1}`;
-      img.className = "rounded-xl shadow-xl object-cover cursor-pointer";
+      img.className = "rounded-xl shadow-xl object-cover cursor-pointer transition-all duration-500";
 
-      // Show images based on index
       if (index === currentIndex) {
         img.classList.add("w-[320px]", "h-[180px]", "scale-100", "z-20");
+        if (direction === "right") img.classList.add("animate-slide-in-right");
+        else if (direction === "left") img.classList.add("animate-slide-in-left");
       } else if (index === (currentIndex - 1 + galleryImages.length) % galleryImages.length) {
         img.classList.add("w-40", "h-28", "scale-90", "opacity-70", "-translate-x-2", "z-10");
       } else if (index === (currentIndex + 1) % galleryImages.length) {
@@ -301,7 +314,6 @@ document.addEventListener("DOMContentLoaded", function () {
         img.classList.add("hidden");
       }
 
-      // Mobile click to view full image
       img.addEventListener("click", () => {
         if (window.innerWidth < 640) {
           const modal = document.getElementById("mobileImageModal");
@@ -319,52 +331,65 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.getElementById("prevImage");
   const nextBtn = document.getElementById("nextImage");
 
-  if (prevBtn && nextBtn) {
-    prevBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      renderGallery();
-    });
+  prevBtn?.addEventListener("click", () => {
+    lastIndex = currentIndex;
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    renderGallery("left");
+  });
 
-    nextBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      renderGallery();
-    });
-  }
+  nextBtn?.addEventListener("click", () => {
+    lastIndex = currentIndex;
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    renderGallery("right");
+  });
 
   renderGallery();
 
-  // Enable swipe gestures on mobile
+  // Mobile Swipe
+  const galleryDisplay = document.getElementById("galleryDisplay");
   let startX = 0;
   let endX = 0;
 
-  const galleryDisplay = document.getElementById("galleryDisplay");
-
-  galleryDisplay.addEventListener("touchstart", (e) => {
+  galleryDisplay?.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
   });
 
-  galleryDisplay.addEventListener("touchmove", (e) => {
+  galleryDisplay?.addEventListener("touchmove", (e) => {
     endX = e.touches[0].clientX;
   });
 
-  galleryDisplay.addEventListener("touchend", () => {
+  galleryDisplay?.addEventListener("touchend", () => {
     const threshold = 50;
     const swipeDistance = endX - startX;
 
     if (swipeDistance > threshold) {
+      lastIndex = currentIndex;
       currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      renderGallery();
+      renderGallery("left");
     } else if (swipeDistance < -threshold) {
+      lastIndex = currentIndex;
       currentIndex = (currentIndex + 1) % galleryImages.length;
-      renderGallery();
+      renderGallery("right");
     }
 
     startX = 0;
     endX = 0;
   });
 
-  // ✅ Close modal when "X" is clicked
-  document.getElementById("closeModal").addEventListener("click", () => {
-    document.getElementById("mobileImageModal").classList.add("hidden");
+  // Mobile Full Image Modal Close
+  document.getElementById("closeModal")?.addEventListener("click", () => {
+    document.getElementById("mobileImageModal")?.classList.add("hidden");
   });
+
+  // Open modal when 'Click to Explore' is clicked
+document.getElementById("exploreFieldTrip")?.addEventListener("click", (e) => {
+  e.stopPropagation(); // Prevent card click (if needed)
+  openFieldTripModal(); // Reuse your existing function
+});
+
+document.getElementById("exploreHelpingHands")?.addEventListener("click", (e) => {
+  e.stopPropagation(); // Prevent card click (if needed)
+  openHelpingHandsModal(); // Reuse your existing function
+});
+
 });

@@ -69,9 +69,10 @@
 
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6">
-                <li><a href="#home" class="hover-effect font-satisfy" >Home</a></li>
+                <li><a href="#home" class="hover-effect text-[#0e103d] font-satisfy">Home</a>
+                </li>
                 <li class="relative group">
-                    <a href="#" class="hover-effect font-satisfy">About</a>
+                    <a href="#" class="hover-effect text-[#0e103d] font-satisfy">About</a>
                     <ul class="hidden group-hover:block absolute left-0 bg-white dark:bg-gray-800 shadow-md rounded-lg">
                         <li><a href="./pages/about/about-school.html"
                                 class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About School</a></li>
@@ -82,9 +83,9 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="#academics" class="hover-effect font-satisfy">Academics</a></li>
-                <li><a href="#gallery" class="hover-effect font-satisfy">Gallery</a></li>
-                <li><a href="#contact" class="hover-effect font-satisfy">Contact</a></li>
+                <li><a href="#academics" class="hover-effect text-[#0e103d] font-satisfy">Academics</a></li>
+                <li><a href="#gallery" class="hover-effect text-[#0e103d] font-satisfy">Gallery</a></li>
+                <li><a href="#contact" class="hover-effect text-[#0e103d] font-satisfy">Contact</a></li>
             </ul>
 
             <!-- Mobile Menu Button -->
@@ -293,36 +294,78 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 hover-group">
       <!-- Card 1: Field Trips -->
-      <div id="fieldTripCard" class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500 cursor-pointer">
-        <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
-          <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-        </div>
-        <div class="relative z-10">
-          <img src="./assets/fieldtrip.jpg" alt="Field Trips" class="w-full h-48 object-cover rounded-t-2xl">
-          <div class="p-6 space-y-3">
-            <h3 class="text-xl font-bold text-white transition duration-300 group-hover:text-white font-fredoka">Field Trips</h3>
-            <p class="text-gray-300 text-sm transition duration-300 group-hover:text-white font-poppins">
-              Real-world learning through exciting and educational field visits.
-            </p>
-          </div>
-        </div>
-      </div>
+      <div id="fieldTripCard"
+     title="Click to view Field Trip details"
+     class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500 cursor-pointer hover:scale-[1.02]">
+
+  <!-- Hover Glow Background -->
+  <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+    <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+  </div>
+
+  <!-- Card Content -->
+  <div class="relative z-10">
+    <!-- Card Image -->
+    <img src="./assets/fieldtrip.jpg" alt="Field Trips" class="w-full h-48 object-cover rounded-t-2xl">
+
+    <!-- Card Text -->
+    <div class="p-6 space-y-3">
+      <h3 class="text-xl font-bold text-white font-fredoka">Field Trips</h3>
+      <p class="text-gray-300 text-sm font-poppins">
+        Real-world learning through exciting and educational field visits.
+      </p>
+
+      <!-- Click to Explore Button (always visible) -->
+      <button id="exploreFieldTrip"
+  class="relative overflow-hidden mt-4 text-white text-xs px-4 py-2 rounded-full backdrop-blur-md bg-white/10 hover:bg-white/20 transition duration-300 animate-bounce group">
+
+  <!-- Swipe Gradient Background -->
+  <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#80cb2e] via-[#9fe155] to-[#80cb2e] transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full z-0"></span>
+
+  <!-- Button Text -->
+  <span class="relative z-10">Click to Explore</span>
+</button>
+    </div>
+  </div>
+</div>
+
 
       <!-- Card 2: Helping Hands -->
-      <div class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500">
-        <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
-          <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-        </div>
-        <div class="relative z-10">
-          <img src="./assets/helpinghands.jpg" alt="Helping Hands" class="w-full h-48 object-cover rounded-t-2xl">
-          <div class="p-6 space-y-3">
-            <h3 class="text-xl font-bold text-white transition duration-300 group-hover:text-white font-fredoka">Helping Hands</h3>
-            <p class="text-gray-300 text-sm transition duration-300 group-hover:text-white font-poppins">
-              Community outreach programs that teach compassion and responsibility.
-            </p>
-          </div>
-        </div>
-      </div>
+<div id="HelpingHandsCard"
+title="Click to view Helping Hands details"
+class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500 cursor-pointer hover:scale-[1.02]">
+
+<!-- Hover Glow Background -->
+<div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+<div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+</div>
+
+<!-- Card Content -->
+<div class="relative z-10">
+<!-- Card Image -->
+<img src="./assets/helpinghands.jpg" alt="Helping Hands" class="w-full h-48 object-cover rounded-t-2xl">
+
+<!-- Card Text -->
+<div class="p-6 space-y-3">
+ <h3 class="text-xl font-bold text-white font-fredoka">Helping Hands</h3>
+ <p class="text-gray-300 text-sm font-poppins">
+   Community outreach programs that teach compassion and responsibility.
+ </p>
+
+ <!-- Click to Explore Button (always visible with bounce) -->
+ <button id="exploreHelpingHands"
+  class="relative overflow-hidden mt-4 text-white text-xs px-4 py-2 rounded-full backdrop-blur-md bg-white/10 hover:bg-white/20 transition duration-300 animate-bounce group">
+
+  <!-- Swipe Gradient Background -->
+  <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#80cb2e] via-[#9fe155] to-[#80cb2e] transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full z-0"></span>
+
+  <!-- Button Text -->
+  <span class="relative z-10">Click to Explore</span>
+</button>
+</div>
+</div>
+</div>
+
 
       <!-- Card 3: Creative Clubs -->
       <div class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500">
@@ -347,7 +390,7 @@
   
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-16 text-center relative overflow-hidden">
+    <section id="gallery" class="py-16 text-center relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
       <h2 class="text-3xl font-bold mb-4 font-fredoka text-white">Gallery</h2>
       <p class="mb-8 text-gray-300">Take a look at our vibrant school life.</p>
     
@@ -487,7 +530,7 @@
     <!-- Modal for Field Trips -->
 <!-- Field Trip Modal -->
 <div id="fieldTripModal" class="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center hidden">
-  <div class="bg-white dark:bg-gray-900 text-white  max-w-2xl w-[90%] max-h-[90vh] p-6 rounded-lg shadow-2xl relative transition-all duration-300 scale-95 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
+  <div class="bg-black bg-opacity-60  text-white  max-w-2xl w-[90%] max-h-[90vh] p-6 rounded-lg shadow-2xl relative transition-all duration-300 scale-95 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-[#69306d]">
     
     <!-- Close Button -->
     <button id="closeFieldTripModal" class="absolute top-3 right-3 text-2xl text-gray-600  hover:text-red-500">✖</button>
@@ -501,6 +544,7 @@
       Trips include visits to science centers, eco-parks, historical sites, and more — guided by educators to ensure safety and learning.
     </p>
 
+
     <!-- Image Carousel -->
     <div class="carousel space-x-4 flex overflow-x-auto snap-x snap-mandatory rounded-md pb-2">
       <img src="./assets/fieldtrip1.jpeg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
@@ -512,10 +556,48 @@
 </div>
 
 <!-- Full Image Viewer -->
-<div id="imageViewer" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden justify-center items-center">
-  <img id="viewerImg" src="" class="max-w-4xl w-full max-h-[90vh] object-contain rounded shadow-xl" />
-  <button id="closeViewer" class="absolute top-5 right-5 text-white text-3xl hover:text-red-500">✖</button>
+<div id="fieldTripViewer" class="fixed inset-0 bg-black bg-opacity-80 z-[999] hidden justify-center items-center">
+  <img id="fieldTripViewerImg" src="" class="max-w-4xl w-full max-h-[90vh] object-contain rounded shadow-xl" />
+  <button id="closeFieldTripViewer" class="absolute top-5 right-5 text-white text-3xl hover:text-red-500">✖</button>
 </div>
+
+
+
+<!-- HELPING HANDS MODAL -->
+<!-- Helping Hands Modal -->
+<div id="helpingHandsModal" class="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center hidden">
+  <div class="bg-black bg-opacity-60 text-white max-w-2xl w-[90%] max-h-[90vh] p-6 rounded-lg shadow-2xl relative transition-all duration-300 scale-95 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-[#69306d]">
+
+    <!-- Close Button -->
+    <button id="closeHelpingHandsModal" class="absolute top-3 right-3 text-2xl text-gray-600 hover:text-red-500">✖</button>
+
+    <!-- Title & Text -->
+    <h2 class="text-2xl font-bold mb-4">Helping Hands</h2>
+    <p class="text-base leading-relaxed">
+      Our “Helping Hands” initiative teaches students empathy, social responsibility, and the value of service through community-driven programs.
+    </p>
+    <p class="mt-4 mb-6">
+      Activities include food drives, environmental clean-ups, visits to shelters, and various volunteering opportunities.
+    </p>
+
+    <!-- Image Carousel -->
+    <div class="carousel space-x-4 flex overflow-x-auto snap-x snap-mandatory rounded-md pb-2">
+      <img src="./assets/fieldtrip1.jpeg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip2.jpeg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip3.jpg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip4.jpg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+    </div>
+  </div>
+</div>
+
+<div id="helpingHandsViewer" class="fixed inset-0 bg-black bg-opacity-80 z-[999] hidden justify-center items-center">
+  <img id="helpingHandsViewerImg" src="" class="max-w-4xl w-full max-h-[90vh] object-contain rounded shadow-xl" />
+  <button id="closeHelpingHandsViewer" class="absolute top-5 right-5 text-white text-3xl hover:text-red-500">✖</button>
+</div>
+
+
+
+
 
 
 <!-- FAQ Popup -->

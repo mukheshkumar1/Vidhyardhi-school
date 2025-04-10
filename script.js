@@ -286,7 +286,6 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
   ];
 
   let currentIndex = 0;
-  let lastIndex = 0;
 
   function renderGallery(direction = null) {
     const display = document.getElementById("galleryDisplay");
@@ -302,18 +301,26 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
       img.alt = `Gallery Image ${index + 1}`;
       img.className = "rounded-xl shadow-xl object-cover cursor-pointer transition-all duration-500";
 
+      // Active Image (center)
       if (index === currentIndex) {
         img.classList.add("w-[320px]", "h-[180px]", "scale-100", "z-20");
         if (direction === "right") img.classList.add("animate-slide-in-right");
         else if (direction === "left") img.classList.add("animate-slide-in-left");
-      } else if (index === (currentIndex - 1 + galleryImages.length) % galleryImages.length) {
+      }
+      // Previous Image
+      else if (index === (currentIndex - 1 + galleryImages.length) % galleryImages.length) {
         img.classList.add("w-40", "h-28", "scale-90", "opacity-70", "-translate-x-2", "z-10");
-      } else if (index === (currentIndex + 1) % galleryImages.length) {
+      }
+      // Next Image
+      else if (index === (currentIndex + 1) % galleryImages.length) {
         img.classList.add("w-40", "h-28", "scale-90", "opacity-70", "translate-x-2", "z-10");
-      } else {
+      }
+      // All Others (Hidden)
+      else {
         img.classList.add("hidden");
       }
 
+      // ✅ Open modal on ANY image click (Mobile only)
       img.addEventListener("click", () => {
         if (window.innerWidth < 640) {
           const modal = document.getElementById("mobileImageModal");
@@ -328,24 +335,21 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
     });
   }
 
+  // Navigation Buttons
   const prevBtn = document.getElementById("prevImage");
   const nextBtn = document.getElementById("nextImage");
 
   prevBtn?.addEventListener("click", () => {
-    lastIndex = currentIndex;
     currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
     renderGallery("left");
   });
 
   nextBtn?.addEventListener("click", () => {
-    lastIndex = currentIndex;
     currentIndex = (currentIndex + 1) % galleryImages.length;
     renderGallery("right");
   });
 
-  renderGallery();
-
-  // Mobile Swipe
+  // Mobile swipe detection
   const galleryDisplay = document.getElementById("galleryDisplay");
   let startX = 0;
   let endX = 0;
@@ -363,11 +367,9 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
     const swipeDistance = endX - startX;
 
     if (swipeDistance > threshold) {
-      lastIndex = currentIndex;
       currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
       renderGallery("left");
     } else if (swipeDistance < -threshold) {
-      lastIndex = currentIndex;
       currentIndex = (currentIndex + 1) % galleryImages.length;
       renderGallery("right");
     }
@@ -376,6 +378,13 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
     endX = 0;
   });
 
+  // Modal close button
+  document.getElementById("closeModal").addEventListener("click", () => {
+    document.getElementById("mobileImageModal").classList.add("hidden");
+  });
+
+  // Initial render
+  renderGallery();
   // Mobile Full Image Modal Close
   document.getElementById("closeModal")?.addEventListener("click", () => {
     document.getElementById("mobileImageModal")?.classList.add("hidden");

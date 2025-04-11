@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Footer Year Update
   document.getElementById("year").innerText = new Date().getFullYear();
 
-  // FAQ popup
+  // FAQ Popup
   const faqPopup = document.getElementById("faq-popup");
   const faqChatbox = document.getElementById("faq-chatbox");
   const closeFaqChat = document.getElementById("close-faq-chat");
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     position: "fixed", top: "-100%", left: "0", width: "100%", height: "100vh",
     backgroundColor: "rgba(0, 0, 0, 0.8)",
     display: "flex", flexDirection: "column", justifyContent: "center",
-    alignItems: "center", transition: "top 0.5s ease-in-out"
+    alignItems: "center", transition: "top 0.5s ease-in-out", zIndex: "999"
   });
 
   const ul = document.createElement("ul");
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Background Slideshow
-  const images = [
+  const bgImages = [
     "./assets/school1.jpg",
     "./assets/school2.jpg",
     "./assets/school3.jpg",
@@ -144,8 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
       overlay.style.filter = "blur(10px)";
       overlay.style.opacity = "0.5";
       setTimeout(() => {
-        bgIndex = (bgIndex + 1) % images.length;
-        overlay.style.backgroundImage = `url('${images[bgIndex]}')`;
+        bgIndex = (bgIndex + 1) % bgImages.length;
+        overlay.style.backgroundImage = `url('${bgImages[bgIndex]}')`;
         overlay.style.filter = "blur(0px)";
         overlay.style.opacity = "1";
       }, 500);
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("nav, #mobile-menu").forEach(el => el.classList.add("slide-down"));
   document.querySelectorAll("a, button").forEach(el => el.classList.add("scale-on-hover"));
 
-  // FIELD TRIP MODAL
+  // Field Trips & Helping Hands Modal
   const fieldTripCard = document.querySelector(".card-item img[alt='Field Trips']");
   const fieldTripModal = document.getElementById("fieldTripModal");
   const closeFieldTripModal = document.getElementById("closeFieldTripModal");
@@ -275,130 +275,106 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
   helpingHandsViewer.classList.remove("flex");
   helpingHandsViewerImg.src = "";
 });
+  // Shared Gallery (PC + Mobile)
+  const galleryDisplay = document.getElementById("galleryDisplay");
+  const mobileGallery = document.getElementById("mobileGallery");
 
+  if (galleryDisplay && mobileGallery) {
+    const galleryImages = [
+      "./assets/school1.jpg",
+      "./assets/school2.jpg",
+      "./assets/school3.jpg",
+      "./assets/school4.jpg",
+      "./assets/school5.jpg"
+    ];
+    let currentIndex = 0;
 
-  // GALLERY CAROUSEL
-  const galleryImages = [
-    "./assets/fieldtrip1.jpeg",
-    "./assets/fieldtrip2.jpeg",
-    "./assets/fieldtrip3.jpg",
-    "./assets/fieldtrip4.jpg",
-  ];
+    function renderGallery() {
+      galleryDisplay.innerHTML = "";
 
-  let currentIndex = 0;
+      const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      const nextIndex = (currentIndex + 1) % galleryImages.length;
 
-  function renderGallery(direction = null) {
-    const display = document.getElementById("galleryDisplay");
-    if (!display) return;
-    display.innerHTML = "";
+      const prevImg = document.createElement("img");
+      prevImg.src = galleryImages[prevIndex];
+      prevImg.className = "gallery-img side w-1/4 max-w-[200px] rounded-lg transition duration-300";
 
-    galleryImages.forEach((src, index) => {
-      const wrapper = document.createElement("div");
-      wrapper.className = "gallery-image-wrapper transition-all duration-500 ease-in-out transform";
+      const mainImg = document.createElement("img");
+      mainImg.src = galleryImages[currentIndex];
+      mainImg.className = "gallery-img active w-1/2 max-w-[400px] rounded-full scale-105 transition duration-300";
 
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = `Gallery Image ${index + 1}`;
-      img.className = "rounded-xl shadow-xl object-cover cursor-pointer transition-all duration-500";
+      const nextImg = document.createElement("img");
+      nextImg.src = galleryImages[nextIndex];
+      nextImg.className = "gallery-img side w-1/4 max-w-[200px] rounded-lg transition duration-300";
 
-      // Active Image (center)
-      if (index === currentIndex) {
-        img.classList.add("w-[320px]", "h-[180px]", "scale-100", "z-20");
-        if (direction === "right") img.classList.add("animate-slide-in-right");
-        else if (direction === "left") img.classList.add("animate-slide-in-left");
-      }
-      // Previous Image
-      else if (index === (currentIndex - 1 + galleryImages.length) % galleryImages.length) {
-        img.classList.add("w-40", "h-28", "scale-90", "opacity-70", "-translate-x-2", "z-10");
-      }
-      // Next Image
-      else if (index === (currentIndex + 1) % galleryImages.length) {
-        img.classList.add("w-40", "h-28", "scale-90", "opacity-70", "translate-x-2", "z-10");
-      }
-      // All Others (Hidden)
-      else {
-        img.classList.add("hidden");
-      }
+      galleryDisplay.appendChild(prevImg);
+      galleryDisplay.appendChild(mainImg);
+      galleryDisplay.appendChild(nextImg);
+    }
 
-      // ✅ Open modal on ANY image click (Mobile only)
-      img.addEventListener("click", () => {
-        if (window.innerWidth < 640) {
-          const modal = document.getElementById("mobileImageModal");
-          const modalImg = document.getElementById("modalImage");
-          modalImg.src = src;
-          modal.classList.remove("hidden");
+    function renderMobileGallery() {
+      mobileGallery.innerHTML = "";
+      galleryImages.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.className = "w-2/3 rounded-lg snap-center shrink-0 cursor-pointer";
+        mobileGallery.appendChild(img);
+      });
+    }
+
+    document.getElementById("prevImage").addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      renderGallery();
+    });
+
+    document.getElementById("nextImage").addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      renderGallery();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (window.innerWidth < 640) return;
+      if (e.key === "ArrowLeft") document.getElementById("prevImage").click();
+      if (e.key === "ArrowRight") document.getElementById("nextImage").click();
+    });
+
+    renderGallery();
+    renderMobileGallery();
+
+    // Mobile Image Modal
+    const imageModal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const closeImageModal = document.getElementById("closeImageModal");
+
+    if (window.innerWidth < 640 && imageModal && modalImage && closeImageModal) {
+      mobileGallery.addEventListener("click", (e) => {
+        if (e.target.tagName === "IMG") {
+          modalImage.src = e.target.src;
+          imageModal.classList.remove("hidden");
+          document.body.classList.add("overflow-hidden");
         }
       });
 
-      wrapper.appendChild(img);
-      display.appendChild(wrapper);
-    });
-  }
+      closeImageModal.addEventListener("click", () => {
+        imageModal.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      });
 
-  // Navigation Buttons
-  const prevBtn = document.getElementById("prevImage");
-  const nextBtn = document.getElementById("nextImage");
-
-  prevBtn?.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    renderGallery("left");
-  });
-
-  nextBtn?.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    renderGallery("right");
-  });
-
-  // Mobile swipe detection
-  const galleryDisplay = document.getElementById("galleryDisplay");
-  let startX = 0;
-  let endX = 0;
-
-  galleryDisplay?.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  galleryDisplay?.addEventListener("touchmove", (e) => {
-    endX = e.touches[0].clientX;
-  });
-
-  galleryDisplay?.addEventListener("touchend", () => {
-    const threshold = 50;
-    const swipeDistance = endX - startX;
-
-    if (swipeDistance > threshold) {
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      renderGallery("left");
-    } else if (swipeDistance < -threshold) {
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      renderGallery("right");
+      imageModal.addEventListener("click", (e) => {
+        if (e.target === imageModal) {
+          imageModal.classList.add("hidden");
+          document.body.classList.remove("overflow-hidden");
+        }
+      });
     }
-
-    startX = 0;
-    endX = 0;
+  }
+  document.getElementById("exploreFieldTrip")?.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent card click (if needed)
+    openFieldTripModal(); // Reuse your existing function
   });
-
-  // Modal close button
-  document.getElementById("closeModal").addEventListener("click", () => {
-    document.getElementById("mobileImageModal").classList.add("hidden");
+  
+  document.getElementById("exploreHelpingHands")?.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent card click (if needed)
+    openHelpingHandsModal(); // Reuse your existing function
   });
-
-  // Initial render
-  renderGallery();
-  // Mobile Full Image Modal Close
-  document.getElementById("closeModal")?.addEventListener("click", () => {
-    document.getElementById("mobileImageModal")?.classList.add("hidden");
-  });
-
-  // Open modal when 'Click to Explore' is clicked
-document.getElementById("exploreFieldTrip")?.addEventListener("click", (e) => {
-  e.stopPropagation(); // Prevent card click (if needed)
-  openFieldTripModal(); // Reuse your existing function
-});
-
-document.getElementById("exploreHelpingHands")?.addEventListener("click", (e) => {
-  e.stopPropagation(); // Prevent card click (if needed)
-  openHelpingHandsModal(); // Reuse your existing function
-});
-
 });

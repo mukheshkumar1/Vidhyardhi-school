@@ -466,7 +466,7 @@ cloud-shape {
   left: 30px;
 }
 
-.gallery-image {
+/* .gallery-image {
   transition: transform 0.5s ease, opacity 0.5s ease;
   opacity: 0;
   transform: scale(0.75);
@@ -492,7 +492,26 @@ cloud-shape {
 
 #galleryDisplay img {
   pointer-events: auto;
+} */
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
+
+.gallery-img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-img.active {
+  transform: scale(1.1);
+  border-radius: 15px;
+}
+
+.gallery-img.side {
+  transform: scale(0.85);
+  filter: blur(1px) brightness(0.6);
+}
+
 
 #chat-content::-webkit-scrollbar {
   width: 8px;
@@ -618,4 +637,18 @@ body::-webkit-scrollbar-thumb:hover {
   100% {
     transform: rotate(0deg);
   }
+}
+
+.modal {
+  transition: none;
+}
+body.modal-open {
+  overflow: hidden;
+}
+.modal-content {
+  animation: fadeIn 0.2s ease-in-out;
+}
+@keyframes fadeIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }

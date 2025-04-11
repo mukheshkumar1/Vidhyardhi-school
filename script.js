@@ -377,47 +377,4 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
     e.stopPropagation(); // Prevent card click (if needed)
     openHelpingHandsModal(); // Reuse your existing function
   });
-
-  // Brochure Popup Download Logic (Bottom Left)
-  const faqPopupMobile = document.getElementById('faq-popup-mobile');
-  const brochurePopup = document.getElementById('brochure-popup');
-  const brochurePopupMobile = document.getElementById('brochure-popup-mobile');
-  const brochurePath = './assets/Vidhyardhi Schools.pdf';
-  
-  // Show both FAQ popups instantly
-  [ faqPopupMobile].forEach(popup => {
-    popup.classList.remove('opacity-0', 'pointer-events-none');
-    popup.classList.add('scale-100', 'opacity-100', 'pointer-events-auto');
-  });
-  
-  // Show both brochure popups instantly
-  [brochurePopup, brochurePopupMobile].forEach(popup => {
-    popup.classList.remove('opacity-0', 'pointer-events-none');
-    popup.classList.add('scale-100', 'opacity-100', 'pointer-events-auto');
-  });
-  
-  // Click event for brochure buttons
-  [brochurePopup, brochurePopupMobile].forEach(popup => {
-    popup.addEventListener('click', () => {
-      const link = document.createElement('a');
-      link.href = brochurePath;
-      link.download = 'Vidhyardhi Schools.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  });
-  
-  // FAQ click opens chatbox
-  [ faqPopupMobile].forEach(popup => {
-    popup.addEventListener('click', () => {
-      document.getElementById('faq-chatbox').classList.remove('hidden');
-    });
-  });
-  
-  // Close chatbox
-  document.getElementById('close-faq-chat').addEventListener('click', () => {
-    document.getElementById('faq-chatbox').classList.add('hidden');
-  });
-  
 });

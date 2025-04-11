@@ -639,16 +639,3 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.modal {
-  transition: none;
-}
-body.modal-open {
-  overflow: hidden;
-}
-.modal-content {
-  animation: fadeIn 0.2s ease-in-out;
-}
-@keyframes fadeIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}

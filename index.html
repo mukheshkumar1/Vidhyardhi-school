@@ -60,63 +60,51 @@
  
 
     <!-- Navbar -->
-    <nav class="fixed top-4 left-4 right-4 z-50  bg-gray-800 bg-opacity-40  rounded-2xl p-4 shadow-lg">
-      <div class="container mx-auto flex justify-between items-center">
-          <img src="./assets/logo5.jpg" alt="VIDHYARDHI" class="w-40 h-auto ">
-  
-          <ul class="hidden md:flex space-x-6">
-              <li><a href="#home" class="font-satisfy hover-effect">Home</a></li>
-              <li class="relative">
-                  <a href="#" class="font-satisfy hover-effect text-gray-900 dark:text-white" id="about-link">About</a>
-                  
-                  <ul id="about-dropdown" class="absolute left-0 hidden flex-col mt-2 shadow-lg w-48 py-2 
-                       bg-gray-800 bg-opacity-40 border border-gray-300 dark:border-gray-600 
-                      rounded-2xl transition-all duration-300">
-                      
-                      <li>
-                          <a href="./pages/about/about-school.html" 
-                             class="font-satisfy block px-4 py-2 hover-effect text-gray-900 dark:text-white 
-                                    hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg">
-                              About School
-                          </a>
-                      </li>
-                      <li>
-                          <a href="./pages/about/about-staff.html" 
-                             class="font-satisfy block px-4 py-2 hover-effect text-gray-900 dark:text-white 
-                                    hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg">
-                              About Staff
-                          </a>
-                      </li>
-                      <li>
-                          <a href="./pages/about/about-academics.html" 
-                             class="font-satisfy block px-4 py-2 hover-effect text-gray-900 dark:text-white 
-                                    hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg">
-                              About Academics
-                          </a>
-                      </li>
-                  </ul>
-              </li>
-              
-              <li><a href="#academics" class="font-satisfy hover-effect">Academics</a></li>
-              <li><a href="#gallery" class="font-satisfy hover-effect">Gallery</a></li>
-              <li><a href="#admissions" class="font-satisfy hover-effect">Admissions</a></li>
-              <li><a href="#contact" class="font-satisfy hover-effect">Contact</a></li>
-          </ul>
-          <button class="md:hidden text-gray-900 dark:text-gray-200 text-2xl focus:outline-none" id="menu-btn">☰</button>
-      </div>
-  </nav>
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-40 dark:bg-opacity-60 rounded-b-xl p-4 shadow-lg md:flex md:justify-between">
+        <div class="container mx-auto flex justify-between items-center">
+          <a href="#home">
+            <img src="./assets/logo5.jpg" alt="VIDHYARDHI" class="w-40 dark:block cursor-pointer">
+          </a>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="fixed top-[-100%] left-0 w-full  bg-gray-800 p-6 flex flex-col space-y-4 transition-all duration-500 md:hidden shadow-md border border-gray-300">
-      <button class="text-gray-900 dark:text-gray-200 text-2xl self-end" id="close-menu">✖</button>
-      <a href="#home" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Home</a>
-      <a href="#about" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">About</a>
-      <a href="#academics" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Academics</a>
-      <a href="#gallery" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Gallery</a>
-      <a href="#admissions" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Admissions</a>
-      <a href="#contact" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Contact</a>
-  </div>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="hover-effect text-[#0e103d] font-satisfy">Home</a>
+                </li>
+                <li class="relative group">
+                    <a href="#" class="hover-effect text-[#0e103d] font-satisfy">About</a>
+                    <ul class="hidden group-hover:block absolute left-0 bg-white dark:bg-gray-800 shadow-md rounded-lg">
+                        <li><a href="./pages/about/about-school.html"
+                                class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About School</a></li>
+                        <li><a href="./pages/about/about-staff.html"
+                                class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About Staff</a></li>
+                        <li><a href="./pages/about/about-academics.html"
+                                class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About Academics</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#academics" class="hover-effect text-[#0e103d] font-satisfy">Academics</a></li>
+                <li><a href="#gallery" class="hover-effect text-[#0e103d] font-satisfy">Gallery</a></li>
+                <li><a href="#contact" class="hover-effect text-[#0e103d] font-satisfy">Contact</a></li>
+            </ul>
 
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-3xl" id="menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu"
+        class="fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-800 flex flex-col items-center justify-center p-6 hidden">
+        <button class="absolute top-5 right-5 text-3xl" id="close-menu">✖</button>
+        <ul class="mt-6 space-y-6 text-2xl font-bold text-center">
+            <li><a href="#home" class="block menu-link font-satisfy">Home</a></li>
+            <li><a href="#about" class="block menu-link font-satisfy">About</a></li>
+            <li><a href="#academics" class="block menu-link font-satisfy">Academics</a></li>
+            <li><a href="#gallery" class="block menu-link font-satisfy">Gallery</a></li>
+            <li><a href="#contact" class="block menu-link font-satisfy">Contact</a></li>
+        </ul>
+    </div>
 
 
 
@@ -158,12 +146,9 @@
   
   <!-- Text Block -->
   <div class="max-w-xl text-center lg:text-left" data-aos="fade-right" data-aos-duration="800">
-    <h3 class="text-2xl text-center font-bold text-white font-fredoka">Chairman</h3>
+    <h3 class="text-2xl font-bold text-white font-fredoka">Chairman</h3>
     <p class="text-gray-300 mt-6 font-montserrat leading-relaxed">
       “At Vidhyardhi School, we believe in nurturing not only academic excellence but also strong values and leadership in our students. Together, we shape the future.”
-    </p>
-    <p class="text-right font-bold  text-gray-300 font-montserrat">-- Chairman's Message
-
     </p>
   </div>
 
@@ -434,7 +419,7 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
           <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
         </div>
         <div class="relative z-10">
-          <img src="./assets/creative club.jpg" alt="Creative Clubs" class="w-full h-48 object-cover rounded-t-2xl">
+          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846" alt="Creative Clubs" class="w-full h-48 object-cover rounded-t-2xl">
           <div class="p-6 space-y-3">
             <h3 class="text-xl font-bold text-white transition duration-300 group-hover:text-white font-fredoka">Creative Clubs</h3>
             <p class="text-gray-300 text-sm transition duration-300 group-hover:text-white font-poppins">
@@ -451,53 +436,36 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
   
 
     <!-- Gallery Section -->
-<section class="py-12 px-4 sm:px-8 lg:px-16 relative" id="gallery" data-aos="fade-up" data-aos-duration="1000">
-  <h2 class="text-center text-3xl font-bold text-gray-300 mb-8">Gallery</h2>
-
-  <!-- Gallery Wrapper with relative position -->
-  <!-- Gallery Wrapper (hidden on mobile, visible on sm and up) -->
-<div class="relative w-full hidden sm:block">
-
-  <!-- Left Button -->
-  <button id="prevImage"
-    class="text-3xl text-gray-300 hover:text-blue-500 transition absolute left-0 top-1/2 -translate-y-1/2 z-30">
-    <i class="fas fa-chevron-left"></i>
-  </button>
-
-  <!-- Gallery Display Area -->
-  <div id="galleryDisplay"
-    class="flex items-center justify-center gap-4 transition-all duration-500 overflow-hidden w-full touch-pan-x">
-    <!-- Images will be injected here by JavaScript -->
-  </div>
-
-  <!-- Right Button -->
-  <button id="nextImage"
-    class="text-3xl text-gray-300 hover:text-blue-500 transition absolute right-0 top-1/2 -translate-y-1/2 z-30">
-    <i class="fas fa-chevron-right"></i>
-  </button>
-
-</div>
-
-
-  <!-- Mobile carousel -->
-  <div id="mobileGallery"
-    class="sm:hidden mt-8 flex overflow-x-auto space-x-4 snap-x snap-mandatory scrollbar-hide">
-    <!-- Mobile images will be injected here -->
-  </div>
-</section>
-
-<!-- Modal Container -->
-<div id="imageModal"
-  class="fixed inset-0 z-50 bg-black bg-opacity-80 hidden items-center justify-center">
-  <div class="relative max-w-[90%] max-h-[90%]">
-    <img id="modalImage" src="" class="rounded-lg w-full h-auto object-contain" />
-    <button id="closeImageModal" class="absolute top-2 right-2 text-white text-2xl">✖</button>
-  </div>
-</div>
-
-
+    <section id="gallery" class="py-16 text-center relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
+      <h2 class="text-3xl font-bold mb-4 font-fredoka text-white">Gallery</h2>
+      <p class="mb-8 text-gray-300">Take a look at our vibrant school life.</p>
     
-
+      <div class="relative max-w-7xl mx-auto flex items-center justify-center px-4">
+        <!-- Left Button (hidden on mobile) -->
+        <button id="prevImage" class="text-3xl text-gray-300 hover:text-blue-500 transition absolute left-0 top-1/2 -translate-y-1/2 z-20 px-4 hidden sm:block">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+    
+        <!-- Gallery Display Area -->
+        <div id="galleryDisplay" class="flex items-center justify-center gap-4 transition-all duration-500 overflow-hidden w-full touch-pan-x"></div>
+    
+        <!-- Right Button (hidden on mobile) -->
+        <button id="nextImage" class="text-3xl text-gray-300 hover:text-blue-500 transition absolute right-0 top-1/2 -translate-y-1/2 z-20 px-4 hidden sm:block">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </section>
+    <!-- Full Image Modal (Mobile only) -->
+    <div id="mobileImageModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden sm:hidden">
+      <!-- Close Button -->
+      <button id="closeModal" class="absolute top-4 right-4 text-white text-3xl font-bold z-50 focus:outline-none">
+        &times;
+      </button>
+    
+      <!-- Modal Image -->
+      <img id="modalImage" src="" alt="Full View" class="max-w-full max-h-full rounded-lg shadow-2xl">
+    </div>
+    
 
     
     

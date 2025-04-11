@@ -18,6 +18,15 @@
         updateFavicon();
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
     </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9D4HHEG11"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W9D4HHEG11');
+</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
@@ -69,10 +78,11 @@
 
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6">
-                <li><a href="#home" class="hover-effect text-[#0e103d] font-satisfy">Home</a>
+                <li><a href="#home" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">Home</a>
+
                 </li>
                 <li class="relative group">
-                    <a href="#" class="hover-effect text-[#0e103d] font-satisfy">About</a>
+                    <a href="#" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">About</a>
                     <ul class="hidden group-hover:block absolute left-0 bg-white dark:bg-gray-800 shadow-md rounded-lg">
                         <li><a href="./pages/about/about-school.html"
                                 class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About School</a></li>
@@ -83,9 +93,9 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="#academics" class="hover-effect text-[#0e103d] font-satisfy">Academics</a></li>
-                <li><a href="#gallery" class="hover-effect text-[#0e103d] font-satisfy">Gallery</a></li>
-                <li><a href="#contact" class="hover-effect text-[#0e103d] font-satisfy">Contact</a></li>
+                <li><a href="#academics" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">Academics</a></li>
+                <li><a href="#gallery" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">Gallery</a></li>
+                <li><a href="#contact" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">Contact</a></li>
             </ul>
 
             <!-- Mobile Menu Button -->
@@ -146,9 +156,12 @@
   
   <!-- Text Block -->
   <div class="max-w-xl text-center lg:text-left" data-aos="fade-right" data-aos-duration="800">
-    <h3 class="text-2xl font-bold text-white font-fredoka">Chairman</h3>
+    <h3 class="text-2xl text-center font-bold text-white font-fredoka">Chairman</h3>
     <p class="text-gray-300 mt-6 font-montserrat leading-relaxed">
       “At Vidhyardhi School, we believe in nurturing not only academic excellence but also strong values and leadership in our students. Together, we shape the future.”
+    </p>
+    <p class="text-right font-bold  text-gray-300 font-montserrat">-- Chairman's Message
+
     </p>
   </div>
 
@@ -419,7 +432,7 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
           <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
         </div>
         <div class="relative z-10">
-          <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846" alt="Creative Clubs" class="w-full h-48 object-cover rounded-t-2xl">
+          <img src="./assets/creative club.jpg" alt="Creative Clubs" class="w-full h-48 object-cover rounded-t-2xl">
           <div class="p-6 space-y-3">
             <h3 class="text-xl font-bold text-white transition duration-300 group-hover:text-white font-fredoka">Creative Clubs</h3>
             <p class="text-gray-300 text-sm transition duration-300 group-hover:text-white font-poppins">
@@ -436,36 +449,53 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
   
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-16 text-center relative overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
-      <h2 class="text-3xl font-bold mb-4 font-fredoka text-white">Gallery</h2>
-      <p class="mb-8 text-gray-300">Take a look at our vibrant school life.</p>
+<section class="py-12 px-4 sm:px-8 lg:px-16 relative" id="gallery" data-aos="fade-up" data-aos-duration="1000">
+  <h2 class="text-center text-3xl font-bold text-gray-300 mb-8">Gallery</h2>
+
+  <!-- Gallery Wrapper with relative position -->
+  <!-- Gallery Wrapper (hidden on mobile, visible on sm and up) -->
+<div class="relative w-full hidden sm:block">
+
+  <!-- Left Button -->
+  <button id="prevImage"
+    class="text-3xl text-gray-300 hover:text-blue-500 transition absolute left-0 top-1/2 -translate-y-1/2 z-30">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <!-- Gallery Display Area -->
+  <div id="galleryDisplay"
+    class="flex items-center justify-center gap-4 transition-all duration-500 overflow-hidden w-full touch-pan-x">
+    <!-- Images will be injected here by JavaScript -->
+  </div>
+
+  <!-- Right Button -->
+  <button id="nextImage"
+    class="text-3xl text-gray-300 hover:text-blue-500 transition absolute right-0 top-1/2 -translate-y-1/2 z-30">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+</div>
+
+
+  <!-- Mobile carousel -->
+  <div id="mobileGallery"
+    class="sm:hidden mt-8 flex overflow-x-auto space-x-4 snap-x snap-mandatory scrollbar-hide">
+    <!-- Mobile images will be injected here -->
+  </div>
+</section>
+
+<!-- Modal Container -->
+<div id="imageModal"
+  class="fixed inset-0 z-50 bg-black bg-opacity-80 hidden items-center justify-center">
+  <div class="relative max-w-[90%] max-h-[90%]">
+    <img id="modalImage" src="" class="rounded-lg w-full h-auto object-contain" />
+    <button id="closeImageModal" class="absolute top-2 right-2 text-white text-2xl">✖</button>
+  </div>
+</div>
+
+
     
-      <div class="relative max-w-7xl mx-auto flex items-center justify-center px-4">
-        <!-- Left Button (hidden on mobile) -->
-        <button id="prevImage" class="text-3xl text-gray-300 hover:text-blue-500 transition absolute left-0 top-1/2 -translate-y-1/2 z-20 px-4 hidden sm:block">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-    
-        <!-- Gallery Display Area -->
-        <div id="galleryDisplay" class="flex items-center justify-center gap-4 transition-all duration-500 overflow-hidden w-full touch-pan-x"></div>
-    
-        <!-- Right Button (hidden on mobile) -->
-        <button id="nextImage" class="text-3xl text-gray-300 hover:text-blue-500 transition absolute right-0 top-1/2 -translate-y-1/2 z-20 px-4 hidden sm:block">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </section>
-    <!-- Full Image Modal (Mobile only) -->
-    <div id="mobileImageModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden sm:hidden">
-      <!-- Close Button -->
-      <button id="closeModal" class="absolute top-4 right-4 text-white text-3xl font-bold z-50 focus:outline-none">
-        &times;
-      </button>
-    
-      <!-- Modal Image -->
-      <img id="modalImage" src="" alt="Full View" class="max-w-full max-h-full rounded-lg shadow-2xl">
-    </div>
-    
+
 
     
     
@@ -644,29 +674,36 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
 
 
 
-<!-- FAQ Popup -->
 <!-- Floating FAQ Popup -->
+<!-- ✅ DESKTOP FAQ POPUP -->
 <div id="faq-popup"
-  class="faq-cloud fixed bottom-4 right-4 max-w-xs bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e]  text-white  px-5 py-4 rounded-xl shadow-2xl border border-gray-700 z-50 transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out animate__animated cursor-pointer">
+  class="hidden md:flex fixed bottom-4 right-4 max-w-xs bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white px-5 py-4 rounded-xl shadow-2xl border border-gray-700 z-50 transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out cursor-pointer">
   <div class="flex items-center gap-2">
     <i class="fa-solid fa-bell text-yellow-500 text-lg animate-ping-slow"></i>
     <p class="text-sm font-semibold leading-tight">Need help? Tap here!</p>
   </div>
 </div>
 
-<!-- Chat-Style FAQ Box -->
+<!-- ✅ MOBILE FAQ CIRCLE BUTTON -->
+<div id="faq-popup-mobile"
+  class="md:hidden fixed bottom-4 right-4 w-16 h-12 bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white rounded-full shadow-xl z-50 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-500 ease-out">
+  <i class="fa-solid fa-bell text-yellow-300 text-lg animate-ping-slow"></i>
+  <p class="text-sm font-semibold leading-tight">FAQ</p>
+</div>
+
+<!-- ✅ CHAT STYLE FAQ BOX (Same for all views) -->
 <div id="faq-chatbox"
   class="hidden fixed bottom-24 right-4 w-[320px] max-h-[500px] bg-gradient-to-br from-[#80cb2e] via-[#9ca3af] to-white rounded-xl shadow-xl z-50 flex flex-col overflow-hidden">
-  
   <div class="bg-lime-600 text-white p-3 flex justify-between items-center">
     <h3 class="text-lg font-semibold">Ask a Question</h3>
     <button id="close-faq-chat" class="text-white text-2xl">&times;</button>
   </div>
-
-  <div id="chat-content" class="bg-gradient-to-br from-[#80cb2e] via-[#9ca3af] to-white flex-1 overflow-y-auto p-3 space-y-3 text-sm">
-    <div class="bg-black bg-clip-text text-transparent text-center italic "><strong>Select a question below to start</strong></div>
+  <div id="chat-content"
+    class="bg-gradient-to-br from-[#80cb2e] via-[#9ca3af] to-white flex-1 overflow-y-auto p-3 space-y-3 text-sm">
+    <div class="bg-black bg-clip-text text-transparent text-center italic">
+      <strong>Select a question below to start</strong>
+    </div>
   </div>
-
   <div class="p-2 bg-[#80cb2e]">
     <div class="flex flex-wrap gap-2">
       <button class="faq-btn bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-xs hover:bg-lime-200"
@@ -678,6 +715,23 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
     </div>
   </div>
 </div>
+
+<!-- ✅ DESKTOP BROCHURE POPUP -->
+<div id="brochure-popup"
+  class="hidden md:flex fixed bottom-4 left-4 max-w-xs bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white px-5 py-4 rounded-xl shadow-2xl border border-white z-50 transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out cursor-pointer">
+  <div class="flex items-center gap-2">
+    <i class="fa-solid fa-file-arrow-down text-yellow-300 text-lg animate-bounce"></i>
+    <p class="text-sm font-semibold leading-tight">Download Brochure</p>
+  </div>
+</div>
+
+<!-- ✅ MOBILE BROCHURE CIRCLE BUTTON -->
+<div id="brochure-popup-mobile"
+  class="md:hidden fixed bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white rounded-full shadow-xl z-50 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-500 ease-out">
+  <i class="fa-solid fa-file-arrow-down text-yellow-300 text-lg animate-bounce"></i>
+</div>
+
+
 
 
 

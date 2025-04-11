@@ -60,52 +60,63 @@
  
 
     <!-- Navbar -->
-    <nav
-        class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-40 dark:bg-opacity-60 rounded-b-xl p-4 shadow-lg md:flex md:justify-between">
-        <div class="container mx-auto flex justify-between items-center">
-          <a href="#home">
-            <img src="./assets/logo5.jpg" alt="VIDHYARDHI" class="w-40 dark:block cursor-pointer">
-          </a>
+    <nav class="fixed top-4 left-4 right-4 z-50  bg-gray-800 bg-opacity-40  rounded-2xl p-4 shadow-lg">
+      <div class="container mx-auto flex justify-between items-center">
+          <img src="./assets/logo5.jpg" alt="VIDHYARDHI" class="w-40 h-auto ">
+  
+          <ul class="hidden md:flex space-x-6">
+              <li><a href="#home" class="font-satisfy hover-effect">Home</a></li>
+              <li class="relative">
+                  <a href="#" class="font-satisfy hover-effect text-gray-900 dark:text-white" id="about-link">About</a>
+                  
+                  <ul id="about-dropdown" class="absolute left-0 hidden flex-col mt-2 shadow-lg w-48 py-2 
+                       bg-gray-800 bg-opacity-40 border border-gray-300 dark:border-gray-600 
+                      rounded-2xl transition-all duration-300">
+                      
+                      <li>
+                          <a href="./pages/about/about-school.html" 
+                             class="font-satisfy block px-4 py-2 hover-effect text-gray-900 dark:text-white 
+                                    hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg">
+                              About School
+                          </a>
+                      </li>
+                      <li>
+                          <a href="./pages/about/about-staff.html" 
+                             class="font-satisfy block px-4 py-2 hover-effect text-gray-900 dark:text-white 
+                                    hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg">
+                              About Staff
+                          </a>
+                      </li>
+                      <li>
+                          <a href="./pages/about/about-academics.html" 
+                             class="font-satisfy block px-4 py-2 hover-effect text-gray-900 dark:text-white 
+                                    hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg">
+                              About Academics
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+              
+              <li><a href="#academics" class="font-satisfy hover-effect">Academics</a></li>
+              <li><a href="#gallery" class="font-satisfy hover-effect">Gallery</a></li>
+              <li><a href="#admissions" class="font-satisfy hover-effect">Admissions</a></li>
+              <li><a href="#contact" class="font-satisfy hover-effect">Contact</a></li>
+          </ul>
+          <button class="md:hidden text-gray-900 dark:text-gray-200 text-2xl focus:outline-none" id="menu-btn">☰</button>
+      </div>
+  </nav>
 
-            <!-- Desktop Menu -->
-            <ul class="hidden md:flex space-x-6">
-                <li><a href="#home" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">Home</a>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-[-100%] left-0 w-full  bg-gray-800 p-6 flex flex-col space-y-4 transition-all duration-500 md:hidden shadow-md border border-gray-300">
+      <button class="text-gray-900 dark:text-gray-200 text-2xl self-end" id="close-menu">✖</button>
+      <a href="#home" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Home</a>
+      <a href="#about" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">About</a>
+      <a href="#academics" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Academics</a>
+      <a href="#gallery" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Gallery</a>
+      <a href="#admissions" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Admissions</a>
+      <a href="#contact" class="text-gray-900 dark:text-gray-200 font-satisfy text-lg py-2">Contact</a>
+  </div>
 
-                </li>
-                <li class="relative group">
-                    <a href="#" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">About</a>
-                    <ul class="hidden group-hover:block absolute left-0 bg-white dark:bg-gray-800 shadow-md rounded-lg">
-                        <li><a href="./pages/about/about-school.html"
-                                class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About School</a></li>
-                        <li><a href="./pages/about/about-staff.html"
-                                class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About Staff</a></li>
-                        <li><a href="./pages/about/about-academics.html"
-                                class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About Academics</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#academics" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">Academics</a></li>
-                <li><a href="#gallery" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">Gallery</a></li>
-                <li><a href="#contact" class="hover-effect bg-gradient-to-br from-[#69306d] to-[#80cb2e] bg-clip-text text-transparent font-satisfy">Contact</a></li>
-            </ul>
-
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-3xl" id="menu-btn">☰</button>
-        </div>
-    </nav>
-
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu"
-        class="fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-800 flex flex-col items-center justify-center p-6 hidden">
-        <button class="absolute top-5 right-5 text-3xl" id="close-menu">✖</button>
-        <ul class="mt-6 space-y-6 text-2xl font-bold text-center">
-            <li><a href="#home" class="block menu-link font-satisfy">Home</a></li>
-            <li><a href="#about" class="block menu-link font-satisfy">About</a></li>
-            <li><a href="#academics" class="block menu-link font-satisfy">Academics</a></li>
-            <li><a href="#gallery" class="block menu-link font-satisfy">Gallery</a></li>
-            <li><a href="#contact" class="block menu-link font-satisfy">Contact</a></li>
-        </ul>
-    </div>
 
 
 

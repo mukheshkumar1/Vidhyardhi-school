@@ -352,12 +352,14 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
           modalImage.src = e.target.src;
           imageModal.classList.remove("hidden");
           document.body.classList.add("overflow-hidden");
+          imageModal.classList.add("flex");
         }
       });
 
       closeImageModal.addEventListener("click", () => {
         imageModal.classList.add("hidden");
         document.body.classList.remove("overflow-hidden");
+        imageModal.classList.remove("flex");
       });
 
       imageModal.addEventListener("click", (e) => {
@@ -368,6 +370,8 @@ closeHelpingHandsViewer?.addEventListener("click", () => {
       });
     }
   }
+
+  
   document.getElementById("exploreFieldTrip")?.addEventListener("click", (e) => {
     e.stopPropagation(); // Prevent card click (if needed)
     openFieldTripModal(); // Reuse your existing function

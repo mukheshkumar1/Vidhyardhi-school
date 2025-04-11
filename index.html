@@ -4,20 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vidhyardhi School</title>
-    <link id="favicon" rel="icon" type="image/png" href="./assets/logo.png">
-    <script>
-        function updateFavicon() {
-            const favicon = document.getElementById("favicon");
-            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                favicon.href = "./assets/logo1.jpg";
-            } else {
-                favicon.href = "./assets/logo.png";
-            }
-        }
-
-        updateFavicon();
-        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
-    </script>
+    <link id="favicon" rel="icon" type="image/png" href="./assets/logo1.jpg">
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9D4HHEG11"></script>
 <script>
@@ -486,7 +473,7 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
 
 <!-- Modal Container -->
 <div id="imageModal"
-  class="fixed inset-0 z-50 bg-black bg-opacity-80 hidden items-center justify-center">
+  class="fixed inset-0 bg-black bg-opacity-80 z-[999] hidden justify-center items-center">
   <div class="relative max-w-[90%] max-h-[90%]">
     <img id="modalImage" src="" class="rounded-lg w-full h-auto object-contain" />
     <button id="closeImageModal" class="absolute top-2 right-2 text-white text-2xl">✖</button>
@@ -677,18 +664,16 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
 <!-- Floating FAQ Popup -->
 <!-- ✅ DESKTOP FAQ POPUP -->
 <div id="faq-popup"
-  class="hidden md:flex fixed bottom-4 right-4 max-w-xs bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white px-5 py-4 rounded-xl shadow-2xl border border-gray-700 z-50 transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out cursor-pointer">
+  class="hidden md:flex fixed bottom-4 right-4 max-w-xs   text-white px-5 py-4 rounded-xl transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out cursor-pointer">
   <div class="flex items-center gap-2">
-    <i class="fa-solid fa-bell text-yellow-500 text-lg animate-ping-slow"></i>
-    <p class="text-sm font-semibold leading-tight">Need help? Tap here!</p>
+    <img src="./assets/faq.png" alt="FAQ Icon" class="w-20 h-20 animate-bounce">
   </div>
 </div>
 
 <!-- ✅ MOBILE FAQ CIRCLE BUTTON -->
 <div id="faq-popup-mobile"
-  class="md:hidden fixed bottom-4 right-4 w-16 h-12 bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white rounded-full shadow-xl z-50 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-500 ease-out">
-  <i class="fa-solid fa-bell text-yellow-300 text-lg animate-ping-slow"></i>
-  <p class="text-sm font-semibold leading-tight">FAQ</p>
+  class="md:hidden fixed bottom-4 right-4 w-16 h-12 bg-transparent text-white rounded-full  z-50 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-500 ease-out animate-bounce">
+  <img src="./assets/faq.png" alt="FAQ Icon" class="w-15 h-15">
 </div>
 
 <!-- ✅ CHAT STYLE FAQ BOX (Same for all views) -->
@@ -718,7 +703,7 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
 
 <!-- ✅ DESKTOP BROCHURE POPUP -->
 <div id="brochure-popup"
-  class="hidden md:flex fixed bottom-4 left-4 max-w-xs bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white px-5 py-4 rounded-xl shadow-2xl border border-white z-50 transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out cursor-pointer">
+  class="hidden md:flex fixed bottom-4 left-4 max-w-xs bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white px-5 py-4 rounded-xl shadow-2xl border border-white z-50 transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out cursor-pointer animate-bounce">
   <div class="flex items-center gap-2">
     <i class="fa-solid fa-file-arrow-down text-yellow-300 text-lg animate-bounce"></i>
     <p class="text-sm font-semibold leading-tight">Download Brochure</p>
@@ -727,8 +712,8 @@ class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidd
 
 <!-- ✅ MOBILE BROCHURE CIRCLE BUTTON -->
 <div id="brochure-popup-mobile"
-  class="md:hidden fixed bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white rounded-full shadow-xl z-50 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-500 ease-out">
-  <i class="fa-solid fa-file-arrow-down text-yellow-300 text-lg animate-bounce"></i>
+  class="md:hidden fixed bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white rounded-full shadow-xl z-50 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-500 ease-out animate-bounce">
+  <i class="fa-duotone fa-solid fa-download fa-bounce" style="--fa-primary-color: #f09c13; --fa-secondary-color: #737373;"></i>
 </div>
 
 

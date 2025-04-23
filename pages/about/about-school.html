@@ -60,11 +60,70 @@
     });
   </script>
 
+   <!-- Navigation Bar -->
+   <nav class="fixed w-full z-50 bg-white bg-opacity-40 rounded-b-xl shadow-lg">
+    <div class="flex justify-between items-center px-4 py-3">
+      <!-- Logo -->
+      <a href="../../index.html#home">
+        <img src="../../assets/logo5.jpg" alt="VIDHYARDHI" class="w-40 cursor-pointer">
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6 items-center">
+        <li><a href="../../index.html#home" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Home</a></li>
+        <li class="relative group">
+          <a href="#" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">About</a>
+          <ul class="hidden group-hover:block absolute left-0 bg-white dark:bg-gray-800 shadow-md rounded-lg">
+            <li><a href="about-school.html" class="block px-4 py-2 hover:text-[#80cb2e] font-satisfy">About School</a></li>
+            <li><a href="about-staff.html" class="block px-4 py-2 hover:text-[#80cb2e] font-satisfy">About Staff</a></li>
+            <li><a href="about-academics.html" class="block px-4 py-2 hover:text-[#80cb2e] font-satisfy">About Academics</a></li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#academics" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Academics</a></li>
+        <li><a href="../../index.html#extra-curricular" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Activities</a></li>
+        <li><a href="../../index.html#gallery" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Gallery</a></li>
+        <li><a href="../../index.html#contact" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden focus:outline-none">
+        <div class="space-y-1">
+          <span class="block w-6 h-0.5 bg-gray-800 transition-all duration-300" id="bar1"></span>
+          <span class="block w-6 h-0.5 bg-gray-800 transition-all duration-300" id="bar2"></span>
+          <span class="block w-6 h-0.5 bg-gray-800 transition-all duration-300" id="bar3"></span>
+        </div>
+      </button>
+    </div>
+
+     <!-- Mobile Dropdown Menu (only shows on mobile) -->
+     <div id="mobileDropdown" class="md:hidden hidden px-4 pb-4 pt-2 bg-white bg-opacity-40 rounded-b-xl shadow-lg ">
+      <ul class="space-y-4 text-gray-800 text-base font-medium">
+        <li><a href="../../index.html#home" class="block hover:text-[#80cb2e] font-satisfy">Home</a></li>
+        <li>
+          <button id="aboutToggle" class="w-full flex items-center justify-between hover:text-[#80cb2e] font-satisfy">
+            <span>About</span>
+            <svg id="aboutArrow" class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24">
+              <path d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <ul id="aboutDropdown" class="hidden mt-2 ml-4 space-y-2 text-sm">
+            <li><a href="about-school.html" class="block px-2 py-1 hover:text-[#80cb2e] font-satisfy">About School</a></li>
+            <li><a href="about-staff.html" class="block px-2 py-1 hover:text-[#80cb2e] font-satisfy">About Staff</a></li>
+            <li><a href="about-academics.html" class="block px-2 py-1 hover:text-[#80cb2e] font-satisfy">About Academics</a></li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#academics" class="block hover:text-[#80cb2e] font-satisfy">Academics</a></li>
+        <li><a href="../../index.html#extra-curricular" class="block hover:text-[#80cb2e] font-satisfy">Extra-Curricular Activities</a></li>
+        <li><a href="../../index.html#gallery"class="block hover:text-[#80cb2e] font-satisfy">Gallery</a></li>
+        <li><a href="../../index.html#contact" class="block hover:text-[#80cb2e] font-satisfy">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+
   <!-- Navigation Back Button -->
   <div class="p-4" data-aos="fade-right" data-aos-duration="800">
-    <a href="../../index.html" class="text-gray-300 hover-effect text-2xl">
-      <i class="fa-solid fa-house"></i> Back to Home
-    </a>
   </div>
 
   <!-- About School Section -->
@@ -125,15 +184,44 @@
     </div>
   </div>
 
-  <!-- Navigation Buttons -->
-  <div class="p-4 flex justify-between items-center" data-aos="fade-up" data-aos-delay="400">
-    <a href="../about/about-academics.html" class="text-gray-300 hover-effect text-2xl flex items-center">
-      <i class="fa-solid fa-backward mr-2"></i> Academics
-    </a>
-    <a href="../about/about-staff.html" class="text-gray-300 hover-effect text-2xl flex items-center">
-      Staff <i class="fa-solid fa-forward ml-2"></i>
-    </a>
-  </div>
+  <!-- Footer -->
+  <footer class="bg-gradient-to-br from-[#69306d] to-[#80cb2e] text-white py-10 rounded-xl" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+      <div>
+        <h2 class="text-2xl font-bold">Vidhyardhi School</h2>
+        <p class="mt-2 text-white/70">Providing quality education for a brighter future.</p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold">Quick Links</h3>
+        <ul class="mt-2 space-y-2">
+          <li><a href="../../index.html#home" class="hover-effect font-poppins">Home</a></li>
+          <li><a href="../../index.html#about" class="hover-effect font-poppins">About</a></li>
+          <li><a href="../../index.html#academics" class="hover-effect font-poppins">Academics</a></li>
+          <li><a href="../../index.html#gallery" class="hover-effect font-poppins">Gallery</a></li>
+          <li><a href="../../index.html#contact" class="hover-effect font-poppins">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold">Contact Us</h3>
+        <p class="mt-2 text-white/70">Near Current Office Railway Gate, Gayatri Nagar, Nellore</p>
+        <p class="mt-1 text-white/70">Phone: 9849244277</p>
+        <p class="mt-1 text-white/70">Email: info@vidhyardhischool.com</p>
+        <div class="mt-4 flex justify-center md:justify-start space-x-4">
+          <a href="#" class="text-white/70 hover:text-blue-400 text-2xl transition"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-white/70 hover:text-sky-400 text-2xl transition"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/vidhyardhi_25/" class="text-white/70 hover:text-pink-400 text-2xl transition"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white/70 hover:text-red-400 text-2xl transition"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-white/70 font-poppins text-sm">
+      &copy; <span id="year"></span> Vidhyardhi School. All Rights Reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
   <!-- Image Slider Script -->
   <script>

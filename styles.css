@@ -344,21 +344,14 @@ card-container.hover-effect .focus-card:not(.hovered) {
   z-index: 10;
 }
 
-.h1{
-font-family: "Fredoka", sans-serif;
+h1, h2, h3 {
+  font-family: 'Fredoka', sans-serif;
 }
 
-.h2{
-  font-family: "Fredoka", sans-serif;
-  }
+p {
+  font-family: 'Poppins', sans-serif;
+}
 
-  .h3{
-    font-family: "Fredoka", sans-serif;
-    }
-
-    .p{
-      font-family: "Poppins", sans-serif;
-    }
 
 
 

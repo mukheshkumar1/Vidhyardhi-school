@@ -87,6 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
       bar3.classList.remove("-rotate-45", "-translate-y-1.5");
     });
   });
+
+  //dropdown in mobilemenu about
+
+  document.getElementById("aboutToggle").addEventListener("click", () => {
+    const dropdown = document.getElementById("aboutDropdown");
+    const arrow = document.getElementById("aboutArrow");
+  
+    dropdown.classList.toggle("hidden");
+    arrow.classList.toggle("rotate-180");
+  });
+  
   // Background Slideshow
   const bgImages = [
     "./assets/school1.jpg",

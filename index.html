@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" class="min-h-screen">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidhyardhi School</title>
+    <link id="favicon" rel="icon" type="image/png" href="./assets/logo1.jpg">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W9D4HHEG11"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W9D4HHEG11');
+</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/25ddfd4f55.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+
+
+
+    <script defer src="script.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        satisfy: ["Madimi One", "sans-serif"],
+                        fredoka: ["Fredoka", "sans-serif"],
+                        poppins: ["Poppins", "sans-serif"],
+                        lobster: ["Lobster", " sans-serif"],
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body class="bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] min-h-screen transition-all  text-gray-200">
+
+ 
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white bg-opacity-40 rounded-b-xl shadow-lg  ">
+
+      <div class="flex justify-between items-center px-4 py-3">
+        <!-- Logo -->
+        <a href="#home">
+          <img src="./assets/logo5.jpg" alt="VIDHYARDHI" class="w-40 cursor-pointer">
+        </a>
+    
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex space-x-6 items-center">
+          <li><a href="#home" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Home</a></li>
+          <li class="relative group">
+            <a href="#" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">About</a>
+            <ul class="hidden group-hover:block absolute left-0 bg-white dark:bg-gray-800 shadow-md rounded-lg">
+              <li><a href="./pages/about/about-school.html" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About School</a></li>
+              <li><a href="./pages/about/about-staff.html" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About Staff</a></li>
+              <li><a href="./pages/about/about-academics.html" class="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 font-satisfy">About Academics</a></li>
+            </ul>
+          </li>
+          <li><a href="#academics" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Academics</a></li>
+          <li><a href="#gallery" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Gallery</a></li>
+          <li><a href="#contact" class="hover-effect bg-gradient-to-br text-white bg-clip-text text-transparent font-satisfy">Contact</a></li>
+        </ul>
+    
+        <!-- Mobile Menu Button (visible only on small screens) -->
+        <button id="mobileMenuBtn" class="md:hidden focus:outline-none">
+          <div class="space-y-1">
+            <span class="block w-6 h-0.5 bg-gray-800 transition-all duration-300" id="bar1"></span>
+            <span class="block w-6 h-0.5 bg-gray-800 transition-all duration-300" id="bar2"></span>
+            <span class="block w-6 h-0.5 bg-gray-800 transition-all duration-300" id="bar3"></span>
+          </div>
+        </button>
+      </div>
+    
+      <!-- Mobile Dropdown Menu (only shows on mobile) -->
+      <div id="mobileDropdown" class="md:hidden hidden px-4 pb-4 pt-2 bg-white bg-opacity-40 rounded-b-xl shadow-lg ">
+        <ul class="space-y-4 text-gray-800 text-base font-medium">
+          <li><a href="#home" class="block hover:text-[#80cb2e] font-satisfy">Home</a></li>
+          <li><a href="#about" class="block hover:text-[#80cb2e] font-satisfy">About</a></li>
+          <li><a href="#gallery"class="block hover:text-[#80cb2e] font-satisfy">Gallery</a></li>
+          <li><a href="#academics" class="block hover:text-[#80cb2e] font-satisfy">Academics</a></li>
+          <li><a href="#contact" class="block hover:text-[#80cb2e] font-satisfy">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+
+
+
+    <!-- Hero Section -->
+    <section id="home" class="relative text-center py-40 bg-cover bg-center overflow-hidden" data-aos="fade-up"
+        data-aos-duration="1000">
+        <!-- Background Overlay for Smooth Transition -->
+        <div id="background-overlay" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+            style="background-image: url('./assets/school1.jpg');"></div>
+
+        <!-- Dark Overlay for Contrast -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+        <!-- Content Layer -->
+        <div class="relative z-10">
+            <h2 class="text-5xl font-bold text-white font-lobster">Welcome to <strong
+                    style="color:#80cb2e">Vidhy</strong><strong style="color: #F09C13">ardhi</strong> School</h2>
+            <p class="mt-4 text-lg text-gray-300">Providing quality education for a brighter future.</p>
+        </div>
+    </section>
+   
+     
+      <!-- Vision Section-->
+        <section id="vision" class="py-16 px-6  mx-auto mt-10 " data-aos="fade-up" data-aos-duration="1000">
+
+          <!-- Vision Header -->
+          <h2 class="text-3xl font-bold text-center text-white font-fredoka">Our Vision</h2>
+          <p class="text-gray-300 mt-4 text-center font-poppins max-w-3xl mx-auto">
+           <strong> At Vidhyardhi School, our vision is to create an inspiring learning environment where students are encouraged to think critically, act ethically, and grow holistically to become global citizens of tomorrow.
+          </strong>
+          </p>
+        
+          <!-- Chairman Section -->
+          <div  class="focus-card glass-card group relative w-full max-w-3xl mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 dark:border-white/20 shadow-2xl transition-transform duration-500" data-aos="fade-up" data-aos-duration="1000">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-4 mt-10">
+    
+            <!-- Message -->
+            <!-- Wrapper with padding and max-width -->
+<div class="max-w-6xl mx-auto px-6 py-12 grid gap-10 lg:grid-cols-2 items-center">
+  
+  <!-- Text Block -->
+  <div class="max-w-xl text-center lg:text-left" data-aos="fade-right" data-aos-duration="800">
+    <h3 class="text-2xl text-center font-bold text-white font-fredoka">Chairman</h3>
+    <p class="text-gray-300 mt-6 font-poppins leading-relaxed">
+      “At Vidhyardhi School, we believe in nurturing not only academic excellence but also strong values and leadership in our students. Together, we shape the future.”
+    </p>
+    <p class="text-right font-bold  text-gray-300 font-fredoka">-- Chairman's Message
+
+    </p>
+  </div>
+
+  <!-- Image + Name Block -->
+  <div class="flex flex-col items-center" data-aos="fade-left" data-aos-duration="800">
+    <div class="relative w-60 h-60 flex items-center justify-center">
+      <!-- Spinner -->
+      <span class="circle-spin absolute inset-0 scale-110"></span>
+      <!-- Image -->
+      <img src="./assets/chairman.jpg" alt="Chairman"
+           class="w-52 h-52 object-cover rounded-full border-4 border-white shadow-xl relative z-10">
+    </div>
+    <!-- Name under the image -->
+    <h3 class="text-xl font-bold text-white font-fredoka mt-4">Mrs. Sandhya Undavalli</h3>
+    <p class="text-sm text-gray-300 font-poppins">Chairman</p>
+  </div>
+
+</div>
+
+          
+</section>
+      
+
+
+    <!-- About Section -->
+    <section id="about"
+    class="py-16 px-6 rounded-2xl "
+    data-aos="fade-up" data-aos-duration="1000">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-white  font-fredoka">About Us</h2>
+      <p class="mt-4 text-gray-300  font-poppins">
+        <strong>Our school is dedicated to academic excellence and personal growth.</strong>
+      </p>
+  
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 card-container mt-10">
+  
+        <!-- Box 1: About School -->
+        <div
+          class="focus-card glass-card group relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 dark:border-white/20 shadow-2xl transition-transform duration-500">
+          <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+            <div
+              class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl">
+            </div>
+          </div>
+          <div class="relative z-10 p-6 space-y-4">
+            <h3 class="text-2xl font-bold text-white  transition duration-300 group-hover:text-white font-fredoka">
+              About School
+            </h3>
+            <p class="text-gray-300  transition duration-300 group-hover:text-white font-poppins">
+              Sustainability and learning go hand in hand at our school.
+            </p>
+            <div class="flex justify-end">
+              <a href="./pages/about/about-school.html"
+                class="relative inline-block px-5 py-2 overflow-hidden font-medium text-white  transition duration-300 ease-out border border-white group-hover:border-lime-500 rounded-md shadow-md hover:scale-105">
+                <span
+                  class="absolute inset-0 w-full h-full font-poppins bg-gradient-to-r from-[#80cb2e] via-[#9fe155] to-[#80cb2e] transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                <span class="relative z-10">Read More <i class="fa-solid fa-right-long"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Box 2: About Staff -->
+        <div
+          class="focus-card glass-card group relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 dark:border-white/20 shadow-2xl transition-transform duration-500">
+          <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+            <div
+              class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl">
+            </div>
+          </div>
+          <div class="relative z-10 p-6 space-y-4">
+            <h3 class="text-2xl font-bold text-white  transition duration-300 group-hover:text-white font-fredoka">
+              About Staff
+            </h3>
+            <p class="text-gray-300  transition duration-300 group-hover:text-white font-poppins">
+              Our highly qualified teachers nurture students with dedication.
+            </p>
+            <div class="flex justify-end">
+              <a href="./pages/about/about-staff.html"
+                class="relative inline-block px-5 py-2 overflow-hidden font-medium text-white  transition duration-300 ease-out border border-white group-hover:border-lime-500 rounded-md shadow-md hover:scale-105">
+                <span
+                  class="absolute inset-0 w-full h-full font-poppins bg-gradient-to-r from-[#80cb2e] via-[#9fe155] to-[#80cb2e] transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                <span class="relative z-10">Read More <i class="fa-solid fa-right-long"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Box 3: About Academics -->
+        <div
+          class="focus-card glass-card group relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 dark:border-white/20 shadow-2xl transition-transform duration-500">
+          <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+            <div
+              class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl">
+            </div>
+          </div>
+          <div class="relative z-10 p-6 space-y-4">
+            <h3 class="text-2xl font-bold text-white  transition duration-300 group-hover:text-white font-fredoka">
+              About Academics
+            </h3>
+            <p class="text-gray-300  transition duration-300 group-hover:text-white font-poppins">
+              We follow a modern curriculum with an emphasis on innovation.
+            </p>
+            <div class="flex justify-end">
+              <a href="./pages/about/about-academics.html"
+                class="relative inline-block px-5 py-2 overflow-hidden font-medium text-white  transition duration-300 ease-out border border-white group-hover:border-lime-500 rounded-md shadow-md hover:scale-105">
+                <span
+                  class="absolute inset-0 w-full h-full font-poppins bg-gradient-to-r from-[#80cb2e] via-[#9fe155] to-[#80cb2e] transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></span>
+                <span class="relative z-10">Read More <i class="fa-solid fa-right-long"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+  
+<!-- Academics Section -->
+<section id="academics" class="py-16 text-center" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-white font-fredoka">Academics</h2>
+    <p class="mt-4 text-gray-300 max-w-2xl mx-auto font-poppins">
+      Our academic curriculum is designed to foster curiosity, critical thinking, and a lifelong love for learning.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 hover-group">
+      <!-- Card 1 -->
+      <div class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500">
+        <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+        </div>
+        <div class="relative z-10">
+          <img src="./assets/academics.jpg" alt="Curriculum" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white transition duration-300 group-hover:text-white font-fredoka">Modern Curriculum</h3>
+            <p class="text-gray-300 text-sm transition duration-300 group-hover:text-white font-poppins">
+              A balanced blend of academics and values helps students grow in all dimensions of life.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500">
+        <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+        </div>
+        <div class="relative z-10">
+          <img src="./assets/innovatingteaching.jpg" alt="Innovative Teaching" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white transition duration-300 group-hover:text-white font-fredoka">Innovative Teaching</h3>
+            <p class="text-gray-300 text-sm transition duration-300 group-hover:text-white font-poppins">
+              Our educators use engaging, hands-on methods to build deep understanding and creativity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500">
+        <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+        </div>
+        <div class="relative z-10">
+          <img src="./assets/studentsuccess.jpeg" alt="Student Success" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white transition duration-300 group-hover:text-white font-fredoka">Student Success</h3>
+            <p class="text-gray-300 text-sm transition duration-300 group-hover:text-white font-poppins">
+              From academic achievements to personal milestones, we celebrate every student's success.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  <!-- Extra-Curricular Section -->
+<section id="extra-curricular" class="py-16 text-center" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-white font-fredoka">Extra-Curricular Activities</h2>
+    <p class="mt-4 text-gray-300 max-w-2xl mx-auto font-poppins">
+      Learning goes beyond textbooks. We nurture talents through diverse programs designed for holistic development.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 hover-group">
+      <!-- Card 1: Field Trips -->
+      <div id="fieldTripCard"
+     title="Click to view Field Trip details"
+     class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500 cursor-pointer hover:scale-[1.02]">
+
+  <!-- Hover Glow Background -->
+  <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+    <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+  </div>
+
+  <!-- Card Content -->
+  <div class="relative z-10">
+    <!-- Card Image -->
+    <img src="./assets/fieldtrip.jpg" alt="Field Trips" class="w-full h-48 object-cover rounded-t-2xl">
+
+    <!-- Card Text -->
+    <div class="p-6 space-y-3">
+      <h3 class="text-xl font-bold text-white font-fredoka">Field Trips</h3>
+      <p class="text-gray-300 text-sm font-poppins">
+        Real-world learning through exciting and educational field visits.
+      </p>
+
+      <!-- Click to Explore Button (always visible) -->
+      <button id="exploreFieldTrip"
+  class="relative overflow-hidden mt-4 text-white font-poppins text-xs px-4 py-2 rounded-full backdrop-blur-md bg-white/10 hover:bg-white/20 transition duration-300 animate-bounce group">
+
+  <!-- Swipe Gradient Background -->
+  <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#80cb2e] via-[#9fe155] to-[#80cb2e] transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full z-0"></span>
+
+  <!-- Button Text -->
+  <span class="relative z-10">Click to Explore</span>
+</button>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Card 2: Helping Hands -->
+<div id="HelpingHandsCard"
+title="Click to view Helping Hands details"
+class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500 cursor-pointer hover:scale-[1.02]">
+
+<!-- Hover Glow Background -->
+<div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+<div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+</div>
+
+<!-- Card Content -->
+<div class="relative z-10">
+<!-- Card Image -->
+<img src="./assets/helpinghands.jpg" alt="Helping Hands" class="w-full h-48 object-cover rounded-t-2xl">
+
+<!-- Card Text -->
+<div class="p-6 space-y-3">
+ <h3 class="text-xl font-bold text-white font-fredoka">Helping Hands</h3>
+ <p class="text-gray-300 text-sm font-poppins">
+   Community outreach programs that teach compassion and responsibility.
+ </p>
+
+ <!-- Click to Explore Button (always visible with bounce) -->
+ <button id="exploreHelpingHands"
+  class="relative overflow-hidden mt-4 text-white font-poppins text-xs px-4 py-2 rounded-full backdrop-blur-md bg-white/10 hover:bg-white/20 transition duration-300 animate-bounce group">
+
+  <!-- Swipe Gradient Background -->
+  <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-[#80cb2e] via-[#9fe155] to-[#80cb2e] transform translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full z-0"></span>
+
+  <!-- Button Text -->
+  <span class="relative z-10">Click to Explore</span>
+</button>
+</div>
+</div>
+</div>
+
+
+      <!-- Card 3: Creative Clubs -->
+      <div class="glass-card group card-item relative w-full max-w-sm mx-auto overflow-hidden rounded-2xl backdrop-blur-lg border border-white/30 shadow-2xl transition-all duration-500">
+        <div class="absolute inset-0 z-0 rounded-2xl pointer-events-none">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#ff7e5f] via-[#feb47b] to-[#ff7e5f] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+        </div>
+        <div class="relative z-10">
+          <img src="./assets/creative club.jpg" alt="Creative Clubs" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-6 space-y-3">
+            <h3 class="text-xl font-bold text-white transition duration-300 group-hover:text-white font-fredoka">Creative Clubs</h3>
+            <p class="text-gray-300 text-sm transition duration-300 group-hover:text-white font-poppins">
+              Clubs that spark imagination — art, dance, coding and more!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  
+
+    <!-- Gallery Section -->
+<section class="py-12 px-4 sm:px-8 lg:px-16 relative" id="gallery" data-aos="fade-up" data-aos-duration="1000">
+  <h2 class="text-center text-3xl font-bold font-fredoka text-white mb-8">Gallery</h2>
+
+  <!-- Gallery Wrapper with relative position -->
+  <!-- Gallery Wrapper (hidden on mobile, visible on sm and up) -->
+<div class="relative w-full hidden sm:block">
+
+  <!-- Left Button -->
+  <button id="prevImage"
+    class="text-3xl text-gray-300 hover:text-blue-500 transition absolute left-0 top-1/2 -translate-y-1/2 z-30">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <!-- Gallery Display Area -->
+  <div id="galleryDisplay"
+    class="flex items-center justify-center gap-4 transition-all duration-500 overflow-hidden w-full touch-pan-x">
+    <!-- Images will be injected here by JavaScript -->
+  </div>
+
+  <!-- Right Button -->
+  <button id="nextImage"
+    class="text-3xl text-gray-300 hover:text-blue-500 transition absolute right-0 top-1/2 -translate-y-1/2 z-30">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+</div>
+
+
+  <!-- Mobile carousel -->
+  <div id="mobileGallery"
+    class="sm:hidden mt-8 flex overflow-x-auto space-x-4 snap-x snap-mandatory scrollbar-hide">
+    <!-- Mobile images will be injected here -->
+  </div>
+</section>
+
+<!-- Modal Container -->
+<div id="imageModal"
+  class="fixed inset-0 bg-black bg-opacity-80 z-[999] hidden justify-center items-center">
+  <div class="relative max-w-[90%] max-h-[90%]">
+    <img id="modalImage" src="" class="rounded-lg w-full h-auto object-contain" />
+    <button id="closeImageModal" class="absolute top-2 right-2 text-white text-2xl">✖</button>
+  </div>
+</div>
+
+
+    
+
+
+    
+    
+    
+    
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 text-center" data-aos="fade-up" data-aos-duration="1000">
+      <h2 class="text-3xl font-bold font-fredoka text-white">Contact Us</h2>
+    
+      <p class="mt-4 text-gray-300">
+        <i class="fa-solid fa-envelope mr-2"></i>
+        <strong class="text-gray-300 font-fredoka">Email:</strong>
+        <a href="mailto:vidhyaradhie.m.school25@gmail.com" class="hover-effect text-gray-300 font-poppins">
+          vidhyaradhie.m.school25@gmail.com
+        </a>
+      </p>
+    
+      <p class="mt-2 text-gray-300">
+        <i class="fa-solid fa-phone mr-2"></i>
+        <strong class="text-gray-300 font-fredoka">Phone:</strong>
+        <a href="tel:+919849244277" class="hover-effect text-gray-300 font-poppins">
+          9849244277
+        </a>
+      </p>
+    
+      <p class="mt-2 text-gray-300 font-poppins">
+        <i class="fa-solid fa-location-dot mr-2"></i>
+        <strong class="text-gray-300 font-fredoka">Address:</strong> Near Current Office Railway Gate, Gayatri Nagar, Nellore
+      </p>
+    
+      <div class="mt-6 flex justify-center" data-aos="fade-up" data-aos-duration="1000">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3864.1902780750656!2d79.95991897510262!3d14.41619208604858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTTCsDI0JzU4LjMiTiA3OcKwNTcnNDUuMCJF!5e0!3m2!1sen!2sin!4v1744117242389!5m2!1sen!2sin" 
+          class="w-full max-w-md h-64 md:h-80 rounded-lg border-0"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    
+      <div class="mt-4 text-center">
+        <strong class="block text-lg text-white">Follow Us:</strong>
+        <div class="mt-4 flex justify-center space-x-6">
+          <a href="#" class="tooltip text-gray-300 hover:text-sky-500 text-2xl" data-title="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="tooltip text-gray-300 hover:text-sky-500 text-2xl" data-title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com/vidhyardhi_25/" class="tooltip text-gray-300 hover:text-pink-500 text-2xl" data-title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="tooltip text-gray-300 hover:text-red-500 text-2xl" data-title="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" class="tooltip text-gray-300 hover:text-green-500 text-2xl" data-title="Whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+
+
+    <!-- Footer -->
+    <footer class=" bg-gradient-to-br from-[#69306d] to-[#80cb2e] text-white py-10 rounded-xl"data-aos="fade-up"
+        data-aos-duration="1000">
+      <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          
+          <!-- School Name & Description -->
+          <div>
+              <h2 class="text-2xl font-bold">Vidhyardhi School</h2>
+              <p class="mt-2 text-white/70">Providing quality education for a brighter future.</p>
+          </div>
+    
+          <!-- Quick Links -->
+          <div>
+              <h3 class="text-xl font-semibold">Quick Links</h3>
+              <ul class="mt-2 space-y-2">
+                  <li><a href="#home" class="hover-effect">Home</a></li>
+                  <li><a href="#about" class="hover-effect">About</a></li>
+                  <li><a href="#academics" class="hover-effect">Academics</a></li>
+                  <li><a href="#gallery" class="hover-effect">Gallery</a></li>
+                  <li><a href="#contact" class="hover-effect">Contact</a></li>
+              </ul>
+          </div>
+    
+          <!-- Contact Information -->
+          <div>
+              <h3 class="text-xl font-semibold">Contact Us</h3>
+              <p class="mt-2 text-white/70">Near Current Office Railway Gate, Gayatri Nagar, Nellore</p>
+              <p class="mt-1 text-white/70">Phone: 9849244277</p>
+              <p class="mt-1 text-white/70">Email: info@vidhyardhischool.com</p>
+              
+              <!-- Social Media Icons -->
+              <div class="mt-4 flex justify-center md:justify-start space-x-4">
+                  <a href="#" class="text-white/70 hover:text-blue-400 text-2xl transition"><i class="fab fa-facebook"></i></a>
+                  <a href="#" class="text-white/70 hover:text-sky-400 text-2xl transition"><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.instagram.com/vidhyardhi_25/" class="text-white/70 hover:text-pink-400 text-2xl transition"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="text-white/70 hover:text-red-400 text-2xl transition"><i class="fab fa-youtube"></i></a>
+              </div>
+          </div>
+      </div>
+    
+      <!-- Copyright Notice -->
+      <div class="mt-8 text-center text-white/50 text-sm">
+          &copy; <span id="year"></span> Vidhyardhi School. All Rights Reserved.
+      </div>
+    </footer>
+    
+    <!-- Modal for Field Trips and Helping Hands -->
+<!-- Field Trip Modal -->
+<div id="fieldTripModal" class="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center hidden">
+  <div class="bg-black bg-opacity-60 text-white max-w-2xl w-[90%] max-h-[90vh] p-6 rounded-lg shadow-2xl relative transition-all duration-300 scale-95 overflow-y-auto overflow-x-auto scrollbar-custom">
+
+    <!-- Close Button -->
+    <button id="closeFieldTripModal" class="absolute top-3 right-3 text-2xl text-gray-600 hover:text-red-500">✖</button>
+
+    <!-- Title & Text -->
+    <h2 class="text-2xl font-bold mb-4">Field Trips</h2>
+    <p class="text-base leading-relaxed">
+      At Vidhyardhi School, our field trips are designed to bridge classroom learning with real-world experiences.
+    </p>
+    <p class="mt-4 mb-6">
+      Trips include visits to science centers, eco-parks, historical sites, and more — guided by educators to ensure safety and learning.
+    </p>
+
+    <!-- Image Carousel -->
+    <div class="carousel space-x-4 flex overflow-x-auto snap-x snap-mandatory rounded-md pb-2">
+      <img src="./assets/fieldtrip1.jpeg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip2.jpeg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip3.jpg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip4.jpg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+    </div>
+  </div>
+</div>
+
+<!-- Field Trip Full Image Viewer -->
+<div id="fieldTripViewer" class="fixed inset-0 bg-black bg-opacity-80 z-[999] hidden justify-center items-center">
+  <img id="fieldTripViewerImg" src="" class="max-w-4xl w-full max-h-[90vh] object-contain rounded shadow-xl" />
+  <button id="closeFieldTripViewer" class="absolute top-5 right-5 text-white text-3xl hover:text-red-500">✖</button>
+</div>
+
+
+<!-- Helping Hands Modal -->
+<div id="helpingHandsModal" class="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center hidden">
+  <div class="bg-black bg-opacity-60 text-white max-w-2xl w-[90%] max-h-[90vh] p-6 rounded-lg shadow-2xl relative transition-all duration-300 scale-95 overflow-y-auto overflow-x-auto scrollbar-custom">
+
+    <!-- Close Button -->
+    <button id="closeHelpingHandsModal" class="absolute top-3 right-3 text-2xl text-gray-600 hover:text-red-500">✖</button>
+
+    <!-- Title & Text -->
+    <h2 class="text-2xl font-bold mb-4">Helping Hands</h2>
+    <p class="text-base leading-relaxed">
+      Our “Helping Hands” initiative teaches students empathy, social responsibility, and the value of service through community-driven programs.
+    </p>
+    <p class="mt-4 mb-6">
+      Activities include food drives, environmental clean-ups, visits to shelters, and various volunteering opportunities.
+    </p>
+
+    <!-- Image Carousel -->
+    <div class="carousel space-x-4 flex overflow-x-auto snap-x snap-mandatory rounded-md pb-2">
+      <img src="./assets/fieldtrip1.jpeg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip2.jpeg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip3.jpg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+      <img src="./assets/fieldtrip4.jpg" class="carousel-img h-40 snap-start rounded-lg cursor-pointer transition-transform hover:scale-105" />
+    </div>
+  </div>
+</div>
+
+<!-- Helping Hands Full Image Viewer -->
+<div id="helpingHandsViewer" class="fixed inset-0 bg-black bg-opacity-80 z-[999] hidden justify-center items-center">
+  <img id="helpingHandsViewerImg" src="" class="max-w-4xl w-full max-h-[90vh] object-contain rounded shadow-xl" />
+  <button id="closeHelpingHandsViewer" class="absolute top-5 right-5 text-white text-3xl hover:text-red-500">✖</button>
+</div>
+
+
+
+
+
+
+<!-- Floating FAQ Popup -->
+<!-- ✅ DESKTOP FAQ POPUP -->
+<div id="faq-popup"
+  class="hidden md:flex fixed bottom-4 right-4 max-w-xs   text-white px-5 py-4 rounded-xl transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out cursor-pointer">
+  <div class="flex items-center gap-2">
+    <img src="./assets/faq.png" alt="FAQ Icon" class="w-20 h-20 animate-bounce">
+  </div>
+</div>
+
+<!-- ✅ MOBILE FAQ CIRCLE BUTTON -->
+<div id="faq-popup-mobile"
+  class="md:hidden fixed bottom-4 right-4 w-16 h-12 bg-transparent text-white rounded-full  z-50 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-500 ease-out animate-bounce">
+  <img src="./assets/faq.png" alt="FAQ Icon" class="w-15 h-15">
+</div>
+
+<!-- ✅ CHAT STYLE FAQ BOX (Same for all views) -->
+<div id="faq-chatbox"
+  class="hidden fixed bottom-24 right-4 w-[320px] max-h-[500px] bg-gradient-to-br from-[#80cb2e] via-[#9ca3af] to-white rounded-xl shadow-xl z-50 flex flex-col overflow-hidden">
+  <div class="bg-lime-600 text-white p-3 flex justify-between items-center">
+    <h3 class="text-lg font-semibold">Ask a Question</h3>
+    <button id="close-faq-chat" class="text-white text-2xl">&times;</button>
+  </div>
+  <div id="chat-content"
+    class="bg-gradient-to-br from-[#80cb2e] via-[#9ca3af] to-white flex-1 overflow-y-auto p-3 space-y-3 text-sm">
+    <div class="bg-black bg-clip-text text-transparent text-center italic">
+      <strong>Select a question below to start</strong>
+    </div>
+  </div>
+  <div class="p-2 bg-[#80cb2e]">
+    <div class="flex flex-wrap gap-2">
+      <button class="faq-btn bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-xs hover:bg-lime-200"
+        data-answer="Admissions start on every year march and ends in june. Contact our office for more details.">When do admissions start?</button>
+      <button class="faq-btn bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-xs hover:bg-lime-200"
+        data-answer="We offer transportation across most city zones with trained staff.">Is transportation available?</button>
+      <button class="faq-btn bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-xs hover:bg-lime-200"
+        data-answer="Yes! We offer dance, music, sports, and field trips for holistic development.">Any extracurriculars?</button>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ DESKTOP BROCHURE POPUP -->
+<div id="brochure-popup"
+  class="hidden md:flex fixed bottom-4 left-4 max-w-xs bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white px-5 py-4 rounded-xl shadow-2xl border border-white z-50 transform scale-90 opacity-0 pointer-events-none transition-all duration-500 ease-out cursor-pointer animate-bounce">
+  <div class="flex items-center gap-2">
+    <i class="fa-solid fa-file-arrow-down text-yellow-300 text-lg animate-bounce"></i>
+    <p class="text-sm font-semibold leading-tight">Download Brochure</p>
+  </div>
+</div>
+
+<!-- ✅ MOBILE BROCHURE CIRCLE BUTTON -->
+<div id="brochure-popup-mobile"
+  class="md:hidden fixed bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white rounded-full shadow-xl z-50 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-500 ease-out animate-bounce">
+  <i class="fa-duotone fa-solid fa-download fa-bounce" style="--fa-primary-color: #f09c13; --fa-secondary-color: #737373;"></i>
+</div>
+
+
+
+
+
+  
+
+</body>
+
+</html>

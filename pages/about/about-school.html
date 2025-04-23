@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vidhyardhi School</title>
+  <link id="favicon" rel="icon" type="image/png" href="../../assets/logo.png">
+    <script>
+        function updateFavicon() {
+            const favicon = document.getElementById("favicon");
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                favicon.href = "../../assets/logo1.jpg";
+            } else {
+                favicon.href = "../../assets/logo.png";
+            }
+        }
+
+        updateFavicon();
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
+    </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fredoka: ["Fredoka", "sans-serif"],
+            poppins: ["Poppins", "sans-serif"],
+            montserrat: ["Montserrat", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/25ddfd4f55.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../styles.css">
+  <script defer src="../../script.js"></script>
+</head>
+
+<body class="bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] min-h-screen transition-all text-gray-200 font-poppins">
+
+  <!-- AOS Initialization -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({ once: true });
+    });
+  </script>
+
+  <!-- Navigation Back Button -->
+  <div class="p-4" data-aos="fade-right" data-aos-duration="800">
+    <a href="../../index.html" class="text-gray-300 hover-effect text-2xl">
+      <i class="fa-solid fa-house"></i> Back to Home
+    </a>
+  </div>
+
+  <!-- About School Section -->
+  <section class="max-w-4xl mx-auto my-10 p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg"
+           data-aos="fade-up" data-aos-duration="1000">
+    <h1 class="text-3xl font-bold text-white font-fredoka text-center" data-aos="zoom-in" data-aos-delay="100">About Vidhyardhi School</h1>
+    <p class="mt-4 font-montserrat text-gray-300" data-aos="fade-up" data-aos-delay="200">
+      <strong>
+      Vidhyardhi School is committed to providing top-tier education, fostering innovation, and shaping young minds for the future.
+      Our curriculum is designed to provide students with academic excellence while nurturing creativity, leadership, and critical thinking.
+    </strong>
+    </p>
+    <p class="mt-4 font-montserrat text-gray-300" data-aos="fade-up" data-aos-delay="300">
+    <strong>
+      We offer state-of-the-art infrastructure, highly qualified faculty, and a range of extracurricular activities to ensure holistic development.
+      Our mission is to empower students with knowledge and skills to succeed in a competitive world.
+    </strong>
+    </p>
+  </section>
+
+  <!-- Image Carousel -->
+  <div class="max-w-4xl mx-auto my-10 p-6 bg-white/10 backdrop-blur-sm rounded-lg shadow-lg"
+       data-aos="zoom-in-up" data-aos-duration="1000">
+    <h2 class="text-2xl font-bold text-white font-fredoka text-center" data-aos="fade-up" data-aos-delay="100">Our School Campus</h2>
+
+    <div class="relative mt-6" data-aos="fade-up" data-aos-delay="200">
+      <img id="schoolImage" src="../../assets/school1.jpg" 
+           class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer" 
+           onclick="openModal()">
+
+      <!-- Previous Button -->
+      <button onclick="prevImage()" 
+              class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white p-3 rounded-full shadow-md hover:bg-green-600 transition">
+        <i class="fa-solid fa-left-long"></i>
+      </button>
+
+      <!-- Next Button -->
+      <button onclick="nextImage()" 
+              class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] text-white p-3 rounded-full shadow-md hover:bg-green-600 transition">
+        <i class="fa-solid fa-right-long"></i>
+      </button>
+    </div>
+
+    <!-- Dots -->
+    <div class="flex justify-center mt-4 space-x-2" data-aos="fade-up" data-aos-delay="300">
+      <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="goToImage(0)"></span>
+      <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="goToImage(1)"></span>
+      <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="goToImage(2)"></span>
+      <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer" onclick="goToImage(3)"></span>
+    </div>
+  </div>
+
+  <!-- Fullscreen Modal -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50">
+    <div class="relative" data-aos="zoom-in" data-aos-duration="600">
+      <img id="fullImage" src="" class="max-w-full max-h-screen rounded-lg">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-white text-3xl font-bold">&times;</button>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="p-4 flex justify-between items-center" data-aos="fade-up" data-aos-delay="400">
+    <a href="../about/about-academics.html" class="text-gray-300 hover-effect text-2xl flex items-center">
+      <i class="fa-solid fa-backward mr-2"></i> Academics
+    </a>
+    <a href="../about/about-staff.html" class="text-gray-300 hover-effect text-2xl flex items-center">
+      Staff <i class="fa-solid fa-forward ml-2"></i>
+    </a>
+  </div>
+
+  <!-- Image Slider Script -->
+  <script>
+    const images = [
+      "../../assets/school1.jpg",
+      "../../assets/school2.jpg",
+      "../../assets/school3.jpg",
+      "../../assets/school4.jpg"
+    ];
+    let currentIndex = 0;
+
+    function updateImage() {
+      document.getElementById("schoolImage").src = images[currentIndex];
+      document.getElementById("fullImage").src = images[currentIndex];
+      document.querySelectorAll(".dot").forEach((dot, index) => {
+        dot.classList.remove("bg-green-500", "bg-gray-400");
+        dot.classList.add(index === currentIndex ? "bg-green-500" : "bg-gray-400");
+      });
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateImage();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateImage();
+    }
+
+    function goToImage(index) {
+      currentIndex = index;
+      updateImage();
+    }
+
+    function openModal() {
+      document.getElementById("imageModal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").classList.add("hidden");
+    }
+
+    updateImage();
+  </script>
+</body>
+</html>

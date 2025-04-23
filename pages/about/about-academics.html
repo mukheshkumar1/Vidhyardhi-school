@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidhyardhi School</title>
+  <link id="favicon" rel="icon" type="image/png" href="../../assets/logo.png">
+    <script>
+        function updateFavicon() {
+            const favicon = document.getElementById("favicon");
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                favicon.href = "../../assets/logo1.jpg";
+            } else {
+                favicon.href = "../../assets/logo.png";
+            }
+        }
+
+        updateFavicon();
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
+    </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            satisfy: ["Madimi One", "sans-serif"],
+            fredoka: ["Fredoka", "sans-serif"],
+            poppins: ["Poppins", "sans-serif"],
+            montserrat: ["Montserrat", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/25ddfd4f55.js" crossorigin="anonymous"></script>
+
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Custom Styles & Script -->
+  <link rel="stylesheet" href="../../styles.css">
+  <script defer src="../../script.js"></script>
+</head>
+
+<body class="bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] min-h-screen transition-all text-gray-200">
+
+  <!-- Initialize AOS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({ once: true });
+    });
+  </script>
+
+  <!-- Navigation Back Button -->
+  <div class="p-4" data-aos="fade-right" data-aos-duration="800">
+    <a href="../../index.html" class="text-gray-300 text-2xl hover-effect">
+      <i class="fa-solid fa-house"></i> Back to Home
+    </a>
+  </div>
+
+  <!-- About Academics Section with Glassmorphism -->
+  <div class="relative max-w-4xl mx-auto my-10 p-8 rounded-2xl shadow-xl border border-white/20 bg-white/10 backdrop-blur-md"
+       data-aos="zoom-in-up" data-aos-duration="1000">
+
+    <h1 class="text-3xl font-bold font-fredoka text-white text-center mb-4"
+        data-aos="fade-up" data-aos-delay="100">
+      Our Academic Programs
+    </h1>
+
+    <p class="mt-4 font-montserrat text-gray-300" data-aos="fade-up" data-aos-delay="200">
+      <strong>
+        At Vidhyardhi School, we believe in a well-rounded education that emphasizes both academics and personal growth.
+        Our curriculum is structured to encourage critical thinking, creativity, and lifelong learning.
+      </strong>
+    </p>
+    
+    <p class="mt-4 font-montserrat text-gray-300" data-aos="fade-up" data-aos-delay="300">
+      <strong>
+        We offer subjects in Science, Mathematics, Humanities, and the Arts, ensuring that students receive comprehensive knowledge across disciplines.
+        Our teachers are dedicated to fostering a supportive and engaging learning environment.
+      </strong>
+    </p>
+    
+
+  </div>
+
+  <!-- Navigation -->
+  <div class="p-4 flex justify-between items-center" data-aos="fade-up" data-aos-delay="400">
+
+
+    <a href="../about/about-staff.html" class="group text-gray-300 text-2xl flex items-center hover-effect transition duration-300">
+      <i class="fa-solid fa-backward mr-2"></i>
+      <h3 class="font-fredoka text-gray-300 hover-effect transition duration-300">Staff</h3>
+    </a>
+  
+    <a href="../about/about-school.html" class="group text-gray-300 text-2xl flex items-center hover-effect transition duration-300">
+      <h3 class="font-fredoka text-gray-300 hover-effect transition duration-300">School</h3>
+      <i class="fa-solid fa-forward ml-2"></i>
+    </a>
+  
+  </div>
+  
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vidhyardhi School</title>
+  <link id="favicon" rel="icon" type="image/png" href="../../assets/logo.png">
+    <script>
+        function updateFavicon() {
+            const favicon = document.getElementById("favicon");
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                favicon.href = "../../assets/logo1.jpg";
+            } else {
+                favicon.href = "../../assets/logo.png";
+            }
+        }
+
+        updateFavicon();
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateFavicon);
+    </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            fredoka: ["Fredoka", "sans-serif"],
+            poppins: ["Poppins", "sans-serif"],
+            montserrat: ["Montserrat", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/25ddfd4f55.js" crossorigin="anonymous"></script>
+
+  <style>
+    .about-img {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  aspect-ratio: 1 / 1;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-spin {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  border-top: 4px solid transparent;
+  border-right: 4px solid#69306d;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid #80cb2e;
+  animation: aboutSpinner 6s linear infinite;
+   /* Show only lower part of spinner */
+}
+
+.about-img img {
+  width: 85%;
+  height: 85%;
+  border-radius: 9999px;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  z-index: 10;
+}
+
+/* Spinner animation */
+@keyframes aboutSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-[#0e103d] via-[#69306d] to-[#80cb2e] min-h-screen transition-all text-gray-200 font-poppins">
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({ duration: 1000,
+    easing: "ease-in-out",
+    once: false,
+    mirror: true, });
+  });
+</script>
+
+<!-- Back Button -->
+<div class="p-4" data-aos="fade-right" data-aos-duration="800">
+  <a href="../../index.html" class="text-gray-300 hover-effect text-2xl">
+    <i class="fa-solid fa-house"></i> Back to Home
+  </a>
+</div>
+
+<!-- Section: Meet Our Staff -->
+<section class="max-w-4xl mx-auto my-10 p-6 bg-white bg-opacity-20 backdrop-blur-md rounded-lg shadow-lg" data-aos="zoom-in-up" data-aos-duration="1000">
+  <h1 class="text-3xl font-bold text-center text-white font-fredoka" data-aos="fade-up" data-aos-delay="100">
+    Meet Our Staff
+  </h1>
+  <p class="mt-4 text-gray-300 font-montserrat" data-aos="fade-up" data-aos-delay="200">
+    <strong>Our staff is the backbone of Vidhyardhi School. With a team of experienced and dedicated educators, we ensure that students receive the best guidance and mentorship.</strong>
+  </p>
+  <p class="mt-4 text-gray-300 font-montserrat" data-aos="fade-up" data-aos-delay="300">
+    <strong>Each teacher brings a unique perspective to the classroom, helping students develop knowledge, skills, and character. We prioritize continuous learning and professional development to maintain the highest teaching standards.</strong>
+  </p>
+</section>
+
+<!-- Chairman -->
+<section class="max-w-4xl mx-auto my-10 p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg flex flex-col lg:flex-row justify-between items-center text-center lg:text-left gap-6" data-aos="fade-up" data-aos-duration="1000">
+  
+  <!-- Text Content -->
+  <div class="max-w-xl">
+    <h3 class="text-2xl font-bold text-center text-white font-fredoka">Chairman</h3>
+    <p class="text-gray-300 mt-6 font-montserrat">
+      “At Vidhyardhi School, we believe in nurturing not only academic excellence but also strong values and leadership in our students. Together, we shape the future.”
+    </p>
+  </div>
+
+  <!-- Image + Name Block -->
+  <div class="flex flex-col items-center" data-aos="fade-down" data-aos-duration="800">
+    <div class="about-img mt-6 lg:mt-0">
+      <span class="circle-spin"></span>
+      <img src="../../assets/chairman.jpg" alt="Chairman">
+    </div>
+    <!-- Name under the image -->
+    <h3 class="text-xl font-bold text-white font-fredoka mt-4" data-aos="fade-right" data-aos-duration="800">Mrs. Sandhya Undavalli</h3>
+    <p class="text-sm text-gray-300" data-aos="fade-right" data-aos-duration="800">Chairman</p>
+  </div>
+
+</section>
+
+
+<!-- Principal -->
+<section class="max-w-4xl mx-auto my-10 p-6 bg-white/10 backdrop-blur-md rounded-lg shadow-lg flex flex-col lg:flex-row justify-between items-center text-center lg:text-left gap-6" data-aos="fade-up" data-aos-duration="1000">
+  <div class="max-w-xl">
+    <h3 class="text-2xl font-bold text-center text-white font-fredoka">Principal</h3>
+    <p class="text-gray-300 mt-6 font-montserrat">
+      “Education is the key to unlock the potential in every child. We strive to create an environment that is caring, inclusive, and focused on holistic development.”
+    </p>
+  </div>
+  <div class="about-img mt-6 lg:mt-0">
+    <span class="circle-spin"></span>
+    <img src="images/principal.jpg" alt="Principal">
+  </div>
+</section>
+
+<!-- Bottom Navigation -->
+<div class="p-4 flex justify-between items-center"  >
+  <a href="../about/about-school.html" class="text-gray-300 hover-effect text-2xl flex items-center font-fredoka">
+    <i class="fa-solid fa-backward mr-2"></i> School
+  </a>
+  <a href="../about/about-academics.html" class="text-gray-300 hover-effect text-2xl flex items-center font-fredoka">
+    Academics <i class="fa-solid fa-forward ml-2"></i>
+  </a>
+</div>
+
+</body>
+</html>
